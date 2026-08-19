@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stackly Health Insurance Portal - Smart health insurance, simplified." />
+  <title>Stackly Health Insurance Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+  <!-- SVG Filter for Logo Recolor -->
+  <svg class="sr-only-svg" aria-hidden="true">
+    <defs>
+      <filter id="logoRecolor">
+        <feColorMatrix type="saturate" values="0" result="gray"/>
+        <feComponentTransfer result="blue">
+          <feFuncR type="table" tableValues="0.145"/>
+          <feFuncG type="table" tableValues="0.388"/>
+          <feFuncB type="table" tableValues="0.922"/>
+        </feComponentTransfer>
+        <feBlend in="gray" in2="blue" mode="multiply" result="tinted"/>
+        <feComponentTransfer>
+          <feFuncA type="table" tableValues="0 1"/>
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Stackly Health home">
+        <img class="logo-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+      </a>
+
+      <!-- Mobile Nav Overlay -->
+      <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+
+      <!-- Mobile Nav Panel -->
+      <nav class="mobile-nav" id="mainNav" aria-label="Primary navigation">
+        <!-- Top: Brand + Close -->
+        <div class="mn-header">
+          <a href="#" class="mn-brand">
+            <img class="mn-brand-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+          </a>
+          <button class="mn-close" id="navClose" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="mn-body">
+          <!-- CTA Block -->
+          <div class="mn-cta glass">
+            <p class="mn-cta-title">Welcome to <strong>Stackly Health</strong></p>
+            <p class="mn-cta-sub">Your trusted partner in smart healthcare coverage.</p>
+            <div class="mn-cta-btns">
+              <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+              <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+          </div>
+
+          <!-- Primary Nav -->
+          <div class="mn-section mn-nav-section">
+            <span class="mn-section-label">Navigation</span>
+            <ul class="mn-nav-list">
+              <li><a href="index.html" class="mn-nav-link active"><span class="mn-nav-icon"><i class="fa-solid fa-house"></i></span><span class="mn-nav-label">Home</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="plans.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-gem"></i></span><span class="mn-nav-label">Plans</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="claims.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-file-lines"></i></span><span class="mn-nav-label">Claims</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="network.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-hospital"></i></span><span class="mn-nav-label">Network</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="contact.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-envelope"></i></span><span class="mn-nav-label">Contact</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+            </ul>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="mn-section">
+            <span class="mn-section-label">Quick Actions</span>
+            <div class="mn-quick-grid">
+              <a href="claims.html" class="mn-quick-pill"><i class="fa-solid fa-file-medical"></i> File a Claim</a>
+              <a href="claims.html" class="mn-quick-pill"><i class="fa-solid fa-magnifying-glass-location"></i> Track Claim</a>
+              <a href="network.html" class="mn-quick-pill"><i class="fa-solid fa-stethoscope"></i> Find Hospitals</a>
+            </div>
+          </div>
+
+          <!-- Feature Block -->
+          <div class="mn-feature">
+            <div class="mn-feature-inner">
+              <div class="mn-feature-stat"><i class="fa-solid fa-hospital"></i><strong>10,000+</strong><span>Cashless Hospitals</span></div>
+              <div class="mn-feature-stat"><i class="fa-solid fa-chart-line"></i><strong>98%</strong><span>Claim Success</span></div>
+            </div>
+          </div>
+
+          <!-- Support -->
+          <div class="mn-section">
+            <span class="mn-section-label">Support</span>
+            <div class="mn-support-list">
+              <a href="tel:+18001234567" class="mn-support-item"><span class="mn-support-icon"><i class="fa-solid fa-phone"></i></span><div><strong>Call Us</strong><span>+1 (800) 123-4567</span></div></a>
+              <a href="mailto:support@stackly.health" class="mn-support-item"><span class="mn-support-icon"><i class="fa-solid fa-envelope"></i></span><div><strong>Email Support</strong><span>support@stackly.health</span></div></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Mini -->
+        <div class="mn-footer">
+          <div class="mn-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <p>&copy; 2026 Stackly Health. All rights reserved.</p>
+        </div>
+
+        <!-- Desktop-only actions -->
+        <div class="mn-desktop-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">Healthcare coverage, reimagined</span>
+          <h1>Health insurance that feels like <span class="gradient-text">tomorrow</span></h1>
+          <p class="hero-sub">Stackly combines fintech speed with human care — instant claims, cashless hospitals, and AI guidance that actually protects your family.</p>
+          <div class="hero-actions">
+            <a href="#plans" class="btn btn-primary btn-lg">Explore Plans</a>
+            <a href="#how-it-works" class="btn btn-glass btn-lg">See how it works</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>10k+</strong><span>Cashless hospitals</span></div>
+            <div class="stat"><strong>98%</strong><span>Claim approval</span></div>
+            <div class="stat"><strong>2M+</strong><span>Happy families</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-wrap">
+            <img src="assets/images/hero.webp" alt="Happy father with his children outdoors" width="900" height="1125" />
+          </div>
+          <div class="floating-card card-1">
+            <div class="floating-icon"><i class="fa-solid fa-check"></i></div>
+            <div><span>Claim settled</span><strong>In 2 minutes</strong></div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="floating-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div><span>Family covered</span><strong>24/7 support</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="partners" id="partners" aria-label="Partner hospitals">
+      <div class="container">
+        <p class="partners-label">Trusted by leading healthcare networks</p>
+        <div class="partners-row">
+          <div class="partner-logo"><span class="partner-mark">A</span><span>Apollo</span></div>
+          <div class="partner-logo"><span class="partner-mark">M</span><span>Max Healthcare</span></div>
+          <div class="partner-logo"><span class="partner-mark">F</span><span>Fortis</span></div>
+          <div class="partner-logo"><span class="partner-mark">M</span><span>Manipal</span></div>
+          <div class="partner-logo"><span class="partner-mark">N</span><span>Narayana</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY STACKLY -->
+    <section class="why" id="why-stackly">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why Stackly</span>
+          <h2>Built for how you actually live</h2>
+          <p>From emergency rooms to annual checkups, every feature is designed to remove friction and add peace of mind.</p>
+        </div>
+        <div class="bento-grid">
+          <article class="bento-card bento-lg reveal" style="--stagger:0.1s">
+            <div class="bento-media"><img src="assets/images/why-hospital.webp" alt="Modern hospital building exterior" width="640" height="480" /></div>
+            <div class="bento-body">
+              <div class="bento-icon"><i class="fa-solid fa-hospital"></i></div>
+              <h3>Cashless Hospitals</h3>
+              <p>Access 10,000+ network hospitals across India with zero upfront payment during emergencies.</p>
+            </div>
+          </article>
+          <article class="bento-card reveal" style="--stagger:0.2s">
+            <div class="bento-media"><img src="assets/images/why-claims.webp" alt="Doctor using smartphone for instant claims" width="640" height="480" /></div>
+            <div class="bento-body">
+              <div class="bento-icon"><i class="fa-solid fa-bolt"></i></div>
+              <h3>Instant Claims</h3>
+              <p>Submit bills digitally and receive approvals in minutes, not weeks.</p>
+            </div>
+          </article>
+          <article class="bento-card reveal" style="--stagger:0.3s">
+            <div class="bento-media"><img src="assets/images/why-ai.webp" alt="Doctor portrait representing AI recommendations" width="640" height="480" /></div>
+            <div class="bento-body">
+              <div class="bento-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <h3>AI Smart Plans</h3>
+              <p>Personalized coverage suggestions based on your health, age, and lifestyle.</p>
+            </div>
+          </article>
+          <article class="bento-card reveal" style="--stagger:0.4s">
+            <div class="bento-media"><img src="assets/images/why-support.webp" alt="Healthcare consultation for support" width="640" height="480" /></div>
+            <div class="bento-body">
+              <div class="bento-icon"><i class="fa-solid fa-headset"></i></div>
+              <h3>24/7 Care Team</h3>
+              <p>Talk to empathetic advisors any time of day or night.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANS -->
+    <section class="plans" id="plans">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Plan Comparison</span>
+          <h2>Transparent plans for every stage of life</h2>
+          <p>No hidden clauses. No surprises. Just coverage that works when you need it.</p>
+        </div>
+        <div class="plans-grid">
+          <article class="plan-card reveal" style="--stagger:0.1s">
+            <h3>Basic</h3>
+            <p class="plan-for">For young professionals</p>
+            <div class="plan-price"><span class="currency">₹</span>499<span>/mo</span></div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-check"></i> ₹3 lakh sum insured</li>
+              <li><i class="fa-solid fa-check"></i> 5,000+ cashless hospitals</li>
+              <li><i class="fa-solid fa-check"></i> Basic health checkups</li>
+              <li class="missing"><i class="fa-solid fa-xmark"></i> Critical illness cover</li>
+              <li class="missing"><i class="fa-solid fa-xmark"></i> Family floater</li>
+            </ul>
+            <a href="#" class="btn btn-secondary btn-block">Get Basic</a>
+          </article>
+
+          <article class="plan-card plan-featured reveal" style="--stagger:0.2s">
+            <div class="plan-badge">Most Popular</div>
+            <h3>Premium</h3>
+            <p class="plan-for">For growing families</p>
+            <div class="plan-price"><span class="currency">₹</span>1,299<span>/mo</span></div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-check"></i> ₹10 lakh sum insured</li>
+              <li><i class="fa-solid fa-check"></i> 10,000+ cashless hospitals</li>
+              <li><i class="fa-solid fa-check"></i> Annual full-body checkups</li>
+              <li><i class="fa-solid fa-check"></i> Critical illness cover</li>
+              <li><i class="fa-solid fa-check"></i> Family floater included</li>
+            </ul>
+            <a href="#" class="btn btn-primary btn-block">Get Premium</a>
+          </article>
+
+          <article class="plan-card reveal" style="--stagger:0.3s">
+            <h3>Family</h3>
+            <p class="plan-for">For complete protection</p>
+            <div class="plan-price"><span class="currency">₹</span>2,499<span>/mo</span></div>
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-check"></i> ₹25 lakh sum insured</li>
+              <li><i class="fa-solid fa-check"></i> Unlimited network hospitals</li>
+              <li><i class="fa-solid fa-check"></i> Quarterly health checkups</li>
+              <li><i class="fa-solid fa-check"></i> Critical + accident cover</li>
+              <li><i class="fa-solid fa-check"></i> Parents included</li>
+            </ul>
+            <a href="#" class="btn btn-secondary btn-block">Get Family</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOSPITAL NETWORK -->
+    <section class="hospitals" id="hospitals">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Hospital Network</span>
+          <h2>Quality care, always within reach</h2>
+          <p>Find top-rated hospitals in your city that accept Stackly cashless coverage.</p>
+        </div>
+        <div class="hospital-grid">
+          <article class="hospital-card reveal" style="--stagger:0.1s">
+            <div class="hospital-image"><img src="assets/images/hospital-1.webp" alt="Apollo Hospital building" width="640" height="480" /></div>
+            <div class="hospital-overlay">
+              <h3>Apollo Hospital</h3>
+              <p>Chennai, India</p>
+              <a href="#" class="btn btn-sm btn-glass">View details</a>
+            </div>
+          </article>
+          <article class="hospital-card reveal" style="--stagger:0.2s">
+            <div class="hospital-image"><img src="assets/images/hospital-2.webp" alt="Max Super Speciality reception" width="640" height="480" /></div>
+            <div class="hospital-overlay">
+              <h3>Max Super Speciality</h3>
+              <p>New Delhi, India</p>
+              <a href="#" class="btn btn-sm btn-glass">View details</a>
+            </div>
+          </article>
+          <article class="hospital-card reveal" style="--stagger:0.3s">
+            <div class="hospital-image"><img src="assets/images/hospital-3.webp" alt="Fortis operating room" width="640" height="480" /></div>
+            <div class="hospital-overlay">
+              <h3>Fortis Healthcare</h3>
+              <p>Mumbai, India</p>
+              <a href="#" class="btn btn-sm btn-glass">View details</a>
+            </div>
+          </article>
+          <article class="hospital-card reveal" style="--stagger:0.4s">
+            <div class="hospital-image"><img src="assets/images/hospital-4.webp" alt="Manipal surgical team" width="640" height="480" /></div>
+            <div class="hospital-overlay">
+              <h3>Manipal Hospital</h3>
+              <p>Bengaluru, India</p>
+              <a href="#" class="btn btn-sm btn-glass">View details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How It Works</span>
+          <h2>From signup to claim in four simple steps</h2>
+        </div>
+        <div class="steps">
+          <div class="step-line" aria-hidden="true"><span></span></div>
+          <article class="step-card reveal" style="--stagger:0.1s">
+            <div class="step-number">1</div>
+            <h3>Signup</h3>
+            <p>Create your profile in under 3 minutes with basic details and health preferences.</p>
+          </article>
+          <article class="step-card reveal" style="--stagger:0.2s">
+            <div class="step-number">2</div>
+            <h3>Choose Plan</h3>
+            <p>Compare transparent plans and pick the coverage that fits your life.</p>
+          </article>
+          <article class="step-card reveal" style="--stagger:0.3s">
+            <div class="step-number">3</div>
+            <h3>Get Coverage</h3>
+            <p>Receive your digital health card instantly and unlock cashless networks.</p>
+          </article>
+          <article class="step-card reveal" style="--stagger:0.4s">
+            <div class="step-number">4</div>
+            <h3>Claim</h3>
+            <p>File claims via the app, track approvals live, and get paid quickly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI SMART INSURANCE -->
+    <section class="ai" id="ai-insurance">
+      <div class="container ai-grid">
+        <div class="ai-content reveal">
+          <span class="eyebrow">AI Smart Insurance</span>
+          <h2>Intelligence that protects your future</h2>
+          <p>Our AI continuously analyzes your health data, market trends, and hospital costs to suggest better coverage, detect gaps, and automate renewals.</p>
+          <div class="ai-chips">
+            <span class="chip"><i class="fa-solid fa-bolt"></i> Personalized recommendations</span>
+            <span class="chip"><i class="fa-solid fa-chart-line"></i> Predictive cost insights</span>
+            <span class="chip"><i class="fa-solid fa-rotate"></i> Automated renewals</span>
+          </div>
+          <a href="#" class="btn btn-primary btn-lg">Discover AI Features</a>
+        </div>
+        <div class="ai-visual reveal" style="--stagger:0.2s">
+          <div class="glass-frame">
+            <img src="assets/images/ai-dashboard.webp" alt="AI analytics dashboard on laptop" width="800" height="600" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBILE APP -->
+    <section class="mobile-app" id="mobile-app">
+      <div class="container mobile-grid">
+        <div class="mobile-visual reveal">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="assets/images/mobile-screen.webp" alt="Stackly mobile app screen with doctor using phone" width="360" height="640" />
+            </div>
+          </div>
+        </div>
+        <div class="mobile-content reveal" style="--stagger:0.2s">
+          <span class="eyebrow">Digital Experience</span>
+          <h2>Your coverage, always in your pocket</h2>
+          <p>Track claims, manage policies, locate hospitals, and consult advisors — all from a beautifully designed mobile app.</p>
+          <div class="mobile-features">
+            <div class="mobile-feature">
+              <div class="mobile-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+              <div>
+                <h3>Track Claims</h3>
+                <p>Real-time status updates from submission to settlement.</p>
+              </div>
+            </div>
+            <div class="mobile-feature">
+              <div class="mobile-icon"><i class="fa-solid fa-id-card"></i></div>
+              <div>
+                <h3>Manage Policies</h3>
+                <p>Digital cards, premium reminders, and family members in one place.</p>
+              </div>
+            </div>
+            <div class="mobile-feature">
+              <div class="mobile-icon"><i class="fa-solid fa-stethoscope"></i></div>
+              <div>
+                <h3>Find Care</h3>
+                <p>Locate nearby cashless hospitals and book appointments instantly.</p>
+              </div>
+            </div>
+          </div>
+          <div class="store-badges">
+            <a href="#" aria-label="Download on App Store"><i class="fa-brands fa-apple"></i> App Store</a>
+            <a href="#" aria-label="Get it on Google Play"><i class="fa-brands fa-google-play"></i> Google Play</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Testimonials</span>
+          <h2>Loved by members across the country</h2>
+        </div>
+        <div class="slider reveal" aria-roledescription="carousel" aria-label="Member testimonials">
+          <button class="slider-arrow prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="slider-viewport">
+            <div class="slider-track" id="testimonialTrack">
+              <article class="testimonial">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"Stackly made my mother's surgery completely cashless. The claim was approved before we even left the hospital."</p>
+                <div class="author"><img src="assets/images/avatar-1.webp" alt="Ananya portrait" width="60" height="60" /><div><strong>Ananya R.</strong><span>Bengaluru</span></div></div>
+              </article>
+              <article class="testimonial">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"The AI plan comparison saved me thousands. I finally understand what I am paying for."</p>
+                <div class="author"><img src="assets/images/avatar-2.webp" alt="Rohan portrait" width="60" height="60" /><div><strong>Rohan M.</strong><span>Mumbai</span></div></div>
+              </article>
+              <article class="testimonial">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="quote">"Customer support at 2 AM helped me find a network ICU during an emergency. Truly life-saving."</p>
+                <div class="author"><img src="assets/images/avatar-3.webp" alt="Sneha portrait" width="60" height="60" /><div><strong>Sneha K.</strong><span>Delhi</span></div></div>
+              </article>
+              <article class="testimonial">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"Beautiful app, paperless claims, and transparent pricing. This is how insurance should be."</p>
+                <div class="author"><img src="assets/images/avatar-4.webp" alt="Priya portrait" width="60" height="60" /><div><strong>Priya S.</strong><span>Hyderabad</span></div></div>
+              </article>
+            </div>
+          </div>
+          <button class="slider-arrow next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-head reveal">
+          <span class="eyebrow">FAQs</span>
+          <h2>Questions? We have answers.</h2>
+          <p>Everything you need to know about getting started with Stackly Health.</p>
+        </div>
+        <div class="faq-list reveal" style="--stagger:0.2s">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span>What is cashless hospitalization?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>Cashless hospitalization lets you get treated at network hospitals without paying upfront. Stackly settles the bill directly with the hospital.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span>How long do claims take?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>Most cashless claims are approved within minutes. Reimbursement claims are typically processed within 7 working days.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span>Can I add family members?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>Yes. Premium and Family plans support adding your spouse, children, and parents under a single policy.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span>Is there a waiting period?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>General waiting periods vary by plan. Emergency accidental coverage begins from day one on all active plans.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false"><span>How does the AI recommendation work?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>Our AI analyzes your profile, medical history, and lifestyle goals to recommend coverage with the best value and protection.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-banner" id="cta-banner">
+      <div class="container cta-inner reveal">
+        <div class="cta-glass">
+          <h2>Secure your health today</h2>
+          <p>Join over 2 million members who trust Stackly for smarter, simpler health insurance.</p>
+          <a href="#plans" class="btn btn-primary btn-lg">Get Covered Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img class="logo-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+          </a>
+          <p>Premium health insurance designed for modern lives. Fast claims, trusted hospitals, and intelligent coverage.</p>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#plans">Health Plans</a></li>
+            <li><a href="claims.html">Claims</a></li>
+            <li><a href="network.html">Hospital Network</a></li>
+            <li><a href="#ai-insurance">AI Features</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Get health tips and product updates in your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" required aria-label="Email address" />
+            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Health Insurance Portal. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

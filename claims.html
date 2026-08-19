@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stackly Health Insurance Claims - Fast, transparent, stress-free claims processing." />
+  <title>Claims - Stackly Health Insurance Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+  <svg class="sr-only-svg" aria-hidden="true"><defs><filter id="logoRecolor"><feColorMatrix type="saturate" values="0" result="gray"/><feComponentTransfer result="blue"><feFuncR type="table" tableValues="0.145"/><feFuncG type="table" tableValues="0.388"/><feFuncB type="table" tableValues="0.922"/></feComponentTransfer><feBlend in="gray" in2="blue" mode="multiply" result="tinted"/><feComponentTransfer><feFuncA type="table" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Stackly Health home">
+        <img class="logo-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+      </a>
+
+      <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+
+      <nav class="mobile-nav" id="mainNav" aria-label="Primary navigation">
+        <div class="mn-header">
+          <a href="index.html" class="mn-brand"><img class="mn-brand-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" /></a>
+          <button class="mn-close" id="navClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="mn-body">
+          <div class="mn-cta glass">
+            <p class="mn-cta-title">Welcome to <strong>Stackly Health</strong></p>
+            <p class="mn-cta-sub">Your trusted partner in smart healthcare coverage.</p>
+            <div class="mn-cta-btns"><a href="login.html" class="btn btn-ghost btn-sm">Login</a><a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a></div>
+          </div>
+          <div class="mn-section mn-nav-section">
+            <span class="mn-section-label">Navigation</span>
+            <ul class="mn-nav-list">
+              <li><a href="index.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-house"></i></span><span class="mn-nav-label">Home</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="plans.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-gem"></i></span><span class="mn-nav-label">Plans</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="claims.html" class="mn-nav-link active"><span class="mn-nav-icon"><i class="fa-solid fa-file-lines"></i></span><span class="mn-nav-label">Claims</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="network.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-hospital"></i></span><span class="mn-nav-label">Network</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="contact.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-envelope"></i></span><span class="mn-nav-label">Contact</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+            </ul>
+          </div>
+          <div class="mn-section">
+            <span class="mn-section-label">Quick Actions</span>
+            <div class="mn-quick-grid">
+              <a href="claims.html" class="mn-quick-pill"><i class="fa-solid fa-file-medical"></i> File a Claim</a>
+              <a href="claims.html" class="mn-quick-pill"><i class="fa-solid fa-magnifying-glass-location"></i> Track Claim</a>
+              <a href="network.html" class="mn-quick-pill"><i class="fa-solid fa-stethoscope"></i> Find Hospitals</a>
+            </div>
+          </div>
+          <div class="mn-feature"><div class="mn-feature-inner"><div class="mn-feature-stat"><i class="fa-solid fa-hospital"></i><strong>10,000+</strong><span>Cashless Hospitals</span></div><div class="mn-feature-stat"><i class="fa-solid fa-chart-line"></i><strong>98%</strong><span>Claim Success</span></div></div></div>
+          <div class="mn-section">
+            <span class="mn-section-label">Support</span>
+            <div class="mn-support-list">
+              <a href="tel:+18001234567" class="mn-support-item"><span class="mn-support-icon"><i class="fa-solid fa-phone"></i></span><div><strong>Call Us</strong><span>+1 (800) 123-4567</span></div></a>
+              <a href="mailto:support@stackly.health" class="mn-support-item"><span class="mn-support-icon"><i class="fa-solid fa-envelope"></i></span><div><strong>Email Support</strong><span>support@stackly.health</span></div></a>
+            </div>
+          </div>
+        </div>
+        <div class="mn-footer"><div class="mn-social"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></div><p>&copy; 2026 Stackly Health. All rights reserved.</p></div>
+        <div class="mn-desktop-actions"><a href="login.html" class="btn btn-ghost btn-sm">Login</a><a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a></div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="claims-hero" id="claims-hero">
+      <div class="claims-hero-glow" aria-hidden="true"></div>
+      <div class="container claims-hero-grid">
+        <div class="claims-hero-content">
+          <span class="eyebrow">Claims Center</span>
+          <h1>Fast, Transparent, <span class="gradient-text">Stress-Free</span> Claims</h1>
+          <p class="hero-sub">Submit, track, and settle your health insurance claims in minutes — not weeks. Our AI-powered process ensures every claim is handled with care and speed.</p>
+          <div class="hero-actions">
+            <a href="#file-claim" class="btn btn-primary btn-lg">Start a Claim</a>
+            <a href="#claim-status" class="btn btn-glass btn-lg">Track Claim Status</a>
+          </div>
+          <div class="claims-hero-stats">
+            <div class="stat"><strong>98%</strong><span>Claims approved</span></div>
+            <div class="stat"><strong>24hr</strong><span>Avg. processing</span></div>
+            <div class="stat"><strong>10k+</strong><span>Hospitals</span></div>
+          </div>
+        </div>
+        <div class="claims-hero-visual">
+          <div class="claims-hero-image-wrap">
+            <img src="assets/images/claims-hero.webp" alt="Doctor discussing insurance claim with patient" width="800" height="533" />
+          </div>
+          <div class="floating-card fc-1">
+            <div class="floating-icon"><i class="fa-solid fa-clock"></i></div>
+            <div><span>Claim filed</span><strong>2 min ago</strong></div>
+          </div>
+          <div class="floating-card fc-2">
+            <div class="floating-icon green"><i class="fa-solid fa-circle-check"></i></div>
+            <div><span>Status</span><strong>Under review</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CLAIM PROCESS STEPS (TIMELINE) -->
+    <section class="claim-process" id="claim-process">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How It Works</span>
+          <h2>Four steps to settle your claim</h2>
+          <p>Our streamlined process gets you from submission to settlement faster than any traditional insurer.</p>
+        </div>
+        <div class="process-timeline">
+          <div class="timeline-track" aria-hidden="true"><span></span></div>
+          <article class="process-step reveal" style="--stagger:0.1s">
+            <div class="step-marker">
+              <div class="step-icon"><i class="fa-solid fa-file-arrow-up"></i></div>
+              <span class="step-num">01</span>
+            </div>
+            <div class="step-content">
+              <h3>Submit Claim</h3>
+              <p>Upload your bills and documents through our app or portal in under 3 minutes.</p>
+            </div>
+          </article>
+          <article class="process-step reveal" style="--stagger:0.2s">
+            <div class="step-marker">
+              <div class="step-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+              <span class="step-num">02</span>
+            </div>
+            <div class="step-content">
+              <h3>Document Review</h3>
+              <p>Our AI instantly validates your documents and flags any missing items.</p>
+            </div>
+          </article>
+          <article class="process-step reveal" style="--stagger:0.3s">
+            <div class="step-marker">
+              <div class="step-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <span class="step-num">03</span>
+            </div>
+            <div class="step-content">
+              <h3>Approval Process</h3>
+              <p>Expert team reviews and approves your claim, usually within 24 hours.</p>
+            </div>
+          </article>
+          <article class="process-step reveal" style="--stagger:0.4s">
+            <div class="step-marker">
+              <div class="step-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+              <span class="step-num">04</span>
+            </div>
+            <div class="step-content">
+              <h3>Settlement</h3>
+              <p>Amount is transferred directly to your account or settled with the hospital.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FILE CLAIM (INTERACTIVE CARD) -->
+    <section class="file-claim" id="file-claim">
+      <div class="file-claim-bg" aria-hidden="true">
+        <img src="assets/images/claims-docs.webp" alt="" width="800" height="534" />
+      </div>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">File a Claim</span>
+          <h2>Start your claim in minutes</h2>
+          <p>Fill in the details below and upload your documents. Our system takes it from there.</p>
+        </div>
+        <div class="claim-form-card reveal" style="--stagger:0.15s">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="policy-number">Policy Number</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-id-card"></i>
+                <input type="text" id="policy-number" placeholder="e.g. SH-2024-XXXXX" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="claim-type">Claim Type</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-tag"></i>
+                <select id="claim-type">
+                  <option value="" disabled selected>Select claim type</option>
+                  <option>Hospitalization</option>
+                  <option>Day Care Procedure</option>
+                  <option>Pre & Post Hospitalization</option>
+                  <option>Ambulance Charges</option>
+                  <option>OPD Treatment</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <label>Upload Documents</label>
+              <div class="upload-zone" id="uploadZone">
+                <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                <p class="upload-text">Drag & drop files here, or <span class="upload-link">browse</span></p>
+                <p class="upload-hint">Supports PDF, JPG, PNG up to 10MB each</p>
+                <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png" hidden />
+              </div>
+              <div class="upload-preview" id="uploadPreview"></div>
+            </div>
+          </div>
+          <div class="form-footer">
+            <div class="form-progress" id="formProgress">
+              <div class="progress-bar"><span></span></div>
+              <span class="progress-text">0% complete</span>
+            </div>
+            <button class="btn btn-primary btn-lg" id="submitClaim">
+              <i class="fa-solid fa-paper-plane"></i> Submit Claim
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CLAIM STATUS TRACKER -->
+    <section class="claim-status" id="claim-status">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Track Status</span>
+          <h2>Real-time claim tracking</h2>
+          <p>Enter your claim ID to see exactly where your claim stands — no guessing, no calling.</p>
+        </div>
+        <div class="status-tracker-card reveal" style="--stagger:0.15s">
+          <div class="tracker-input-row">
+            <div class="input-wrap tracker-input">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="claimSearchInput" placeholder="Enter claim ID (e.g. CLM-2024-08742)" aria-label="Search claims" />
+            </div>
+            <button class="btn btn-primary" id="trackClaimBtn">
+              <i class="fa-solid fa-arrow-right"></i> Track
+            </button>
+          </div>
+          <div class="tracker-result" id="trackerResult">
+            <div class="tracker-stages">
+              <div class="stage active" data-stage="1">
+                <div class="stage-dot"><i class="fa-solid fa-check"></i></div>
+                <span class="stage-label">Submitted</span>
+                <span class="stage-date">Aug 12, 2026</span>
+              </div>
+              <div class="stage-connector active"><span></span></div>
+              <div class="stage active" data-stage="2">
+                <div class="stage-dot"><i class="fa-solid fa-check"></i></div>
+                <span class="stage-label">Reviewing</span>
+                <span class="stage-date">Aug 13, 2026</span>
+              </div>
+              <div class="stage-connector"><span></span></div>
+              <div class="stage" data-stage="3">
+                <div class="stage-dot"><i class="fa-solid fa-circle"></i></div>
+                <span class="stage-label">Approved</span>
+                <span class="stage-date">Pending</span>
+              </div>
+              <div class="stage-connector"><span></span></div>
+              <div class="stage" data-stage="4">
+                <div class="stage-dot"><i class="fa-solid fa-circle"></i></div>
+                <span class="stage-label">Settled</span>
+                <span class="stage-date">Pending</span>
+              </div>
+            </div>
+            <div class="tracker-info">
+              <div class="tracker-info-card">
+                <span class="tracker-info-label">Claim Amount</span>
+                <strong class="tracker-info-value">₹1,45,000</strong>
+              </div>
+              <div class="tracker-info-card">
+                <span class="tracker-info-label">Hospital</span>
+                <strong class="tracker-info-value">Apollo Hospitals</strong>
+              </div>
+              <div class="tracker-info-card">
+                <span class="tracker-info-label">Claim Type</span>
+                <strong class="tracker-info-value">Hospitalization</strong>
+              </div>
+              <div class="tracker-info-card">
+                <span class="tracker-info-label">Est. Settlement</span>
+                <strong class="tracker-info-value accent">Aug 16, 2026</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CASHLESS HOSPITAL SUPPORT -->
+    <section class="cashless-support" id="cashless-support">
+      <div class="container cashless-grid">
+        <div class="cashless-visual reveal">
+          <div class="cashless-image-wrap">
+            <img src="assets/images/claims-hospital.webp" alt="Modern hospital building exterior" width="640" height="426" />
+            <div class="cashless-image-overlay">
+              <span class="overlay-stat"><strong>10,000+</strong> Network Hospitals</span>
+            </div>
+          </div>
+        </div>
+        <div class="cashless-content reveal" style="--stagger:0.2s">
+          <span class="eyebrow">Cashless Treatment</span>
+          <h2>Zero upfront cost at network hospitals</h2>
+          <p>Walk into any of our 10,000+ network hospitals and get treated without paying a single rupee upfront. We settle directly with the hospital.</p>
+          <div class="cashless-points">
+            <div class="cashless-point">
+              <div class="point-icon"><i class="fa-solid fa-hospital"></i></div>
+              <div>
+                <h4>10,000+ Hospitals</h4>
+                <p>India's largest cashless hospital network across all major cities.</p>
+              </div>
+            </div>
+            <div class="cashless-point">
+              <div class="point-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div>
+                <h4>Instant Approval</h4>
+                <p>Pre-authorization approved in real-time at the hospital desk.</p>
+              </div>
+            </div>
+            <div class="cashless-point">
+              <div class="point-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+              <div>
+                <h4>Zero Upfront Cost</h4>
+                <p>No out-of-pocket expenses during your hospital stay.</p>
+              </div>
+            </div>
+            <div class="cashless-point">
+              <div class="point-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div>
+                <h4>24/7 Support</h4>
+                <p>Our care team coordinates everything with the hospital.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary btn-lg">Find Network Hospitals</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SMART CLAIM ASSISTANCE (AI) -->
+    <section class="smart-claims" id="smart-claims">
+      <div class="container smart-grid">
+        <div class="smart-content reveal">
+          <span class="eyebrow">AI-Powered</span>
+          <h2>Intelligent claims that learn and improve</h2>
+          <p>Our AI engine processes thousands of claims daily, learning patterns to deliver faster approvals and detect fraud before it happens.</p>
+          <div class="smart-features">
+            <div class="smart-feature">
+              <div class="smart-icon"><i class="fa-solid fa-robot"></i></div>
+              <div>
+                <h4>Auto-Validation</h4>
+                <p>AI verifies documents and medical codes instantly, reducing manual review time by 80%.</p>
+              </div>
+            </div>
+            <div class="smart-feature">
+              <div class="smart-icon"><i class="fa-solid fa-shield-check"></i></div>
+              <div>
+                <h4>Fraud Detection</h4>
+                <p>Machine learning algorithms flag suspicious claims to protect honest policyholders.</p>
+              </div>
+            </div>
+            <div class="smart-feature">
+              <div class="smart-icon"><i class="fa-solid fa-gauge-high"></i></div>
+              <div>
+                <h4>Faster Approvals</h4>
+                <p>Simple claims are auto-approved within minutes, no human intervention needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="smart-visual reveal" style="--stagger:0.2s">
+          <div class="smart-image-frame">
+            <img src="assets/images/claims-tech.webp" alt="Healthcare technology dashboard" width="800" height="534" />
+          </div>
+          <div class="smart-float-card sfc-1">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Claim auto-approved</span>
+          </div>
+          <div class="smart-float-card sfc-2">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>98.2% accuracy rate</span>
+          </div>
+          <div class="smart-float-card sfc-3">
+            <i class="fa-solid fa-clock"></i>
+            <span>Avg 4min processing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CLAIM SUCCESS STORIES -->
+    <section class="claim-stories" id="claim-stories">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Success Stories</span>
+          <h2>Real claims, real families helped</h2>
+        </div>
+        <div class="stories-slider reveal" aria-roledescription="carousel" aria-label="Claim success stories">
+          <button class="slider-arrow prev" aria-label="Previous story"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="slider-viewport">
+            <div class="slider-track" id="storiesTrack">
+              <article class="story-card">
+                <div class="story-header">
+                  <div class="story-badge"><i class="fa-solid fa-check-circle"></i> Settled</div>
+                  <span class="story-amount">₹3,20,000</span>
+                </div>
+                <div class="story-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="story-quote">"My father's heart surgery was completely cashless. The claim was approved in just 6 hours. Stackly literally saved his life."</p>
+                <div class="story-author">
+                  <img src="assets/images/avatar-1.webp" alt="Vikram portrait" width="52" height="52" />
+                  <div><strong>Vikram S.</strong><span>Mumbai, Maharashtra</span></div>
+                </div>
+                <div class="story-meta">
+                  <span><i class="fa-solid fa-hospital"></i> Apollo Hospitals</span>
+                  <span><i class="fa-solid fa-calendar"></i> Settled in 2 days</span>
+                </div>
+              </article>
+              <article class="story-card">
+                <div class="story-header">
+                  <div class="story-badge"><i class="fa-solid fa-check-circle"></i> Settled</div>
+                  <span class="story-amount">₹85,000</span>
+                </div>
+                <div class="story-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="story-quote">"My daughter's appendectomy was handled so smoothly. No paperwork, no phone calls — just submitted the claim and it was done."</p>
+                <div class="story-author">
+                  <img src="assets/images/avatar-2.webp" alt="Priya portrait" width="52" height="52" />
+                  <div><strong>Priya N.</strong><span>Bengaluru, Karnataka</span></div>
+                </div>
+                <div class="story-meta">
+                  <span><i class="fa-solid fa-hospital"></i> Manipal Hospital</span>
+                  <span><i class="fa-solid fa-calendar"></i> Settled in 1 day</span>
+                </div>
+              </article>
+              <article class="story-card">
+                <div class="story-header">
+                  <div class="story-badge"><i class="fa-solid fa-check-circle"></i> Settled</div>
+                  <span class="story-amount">₹5,75,000</span>
+                </div>
+                <div class="story-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="story-quote">"After my knee replacement, the entire rehabilitation cost was covered. The AI flagged my claim for fast-track approval."</p>
+                <div class="story-author">
+                  <img src="assets/images/avatar-3.webp" alt="Rajesh portrait" width="52" height="52" />
+                  <div><strong>Rajesh K.</strong><span>Delhi, NCR</span></div>
+                </div>
+                <div class="story-meta">
+                  <span><i class="fa-solid fa-hospital"></i> Max Healthcare</span>
+                  <span><i class="fa-solid fa-calendar"></i> Settled in 3 days</span>
+                </div>
+              </article>
+              <article class="story-card">
+                <div class="story-header">
+                  <div class="story-badge"><i class="fa-solid fa-check-circle"></i> Settled</div>
+                  <span class="story-amount">₹1,20,000</span>
+                </div>
+                <div class="story-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="story-quote">"Emergency ambulance + 3-day ICU stay. Stackly handled everything — I didn't have to lift a finger during the most stressful time."</p>
+                <div class="story-author">
+                  <img src="assets/images/avatar-4.webp" alt="Meera portrait" width="52" height="52" />
+                  <div><strong>Meera D.</strong><span>Hyderabad, Telangana</span></div>
+                </div>
+                <div class="story-meta">
+                  <span><i class="fa-solid fa-hospital"></i> Fortis Healthcare</span>
+                  <span><i class="fa-solid fa-calendar"></i> Settled in 2 days</span>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button class="slider-arrow next" aria-label="Next story"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots" id="storiesDots"></div>
+      </div>
+    </section>
+
+    <!-- 8. FINAL CTA -->
+    <section class="claims-cta" id="claims-cta">
+      <div class="claims-cta-pattern" aria-hidden="true"></div>
+      <div class="container claims-cta-inner reveal">
+        <div class="claims-cta-glass">
+          <h2>Claim Without Hassle — We've Got You Covered</h2>
+          <p>Join 2 million+ members who trust Stackly for fast, transparent claims. Your health deserves better than bureaucracy.</p>
+          <div class="claims-cta-actions">
+            <a href="#file-claim" class="btn btn-primary btn-lg">File a Claim Now</a>
+            <a href="plans.html" class="btn btn-glass btn-lg">Explore Plans</a>
+          </div>
+          <div class="cta-trust-row">
+            <div class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> IRDAI Approved</div>
+            <div class="cta-trust-item"><i class="fa-solid fa-clock"></i> 24hr Settlement</div>
+            <div class="cta-trust-item"><i class="fa-solid fa-hospital"></i> 10k+ Hospitals</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (SHARED) -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img class="logo-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+          </a>
+          <p>Premium health insurance designed for modern lives. Fast claims, trusted hospitals, and intelligent coverage.</p>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="plans.html">Health Plans</a></li>
+            <li><a href="claims.html">Claims</a></li>
+            <li><a href="network.html">Hospital Network</a></li>
+            <li><a href="index.html#ai-insurance">AI Features</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Get health tips and product updates in your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" required aria-label="Email address" />
+            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Health Insurance Portal. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

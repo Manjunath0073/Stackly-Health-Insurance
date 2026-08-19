@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stackly Health Insurance Plans - Flexible coverage for every life stage." />
+  <title>Plans - Stackly Health Insurance Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+  <svg class="sr-only-svg" aria-hidden="true"><defs><filter id="logoRecolor"><feColorMatrix type="saturate" values="0" result="gray"/><feComponentTransfer result="blue"><feFuncR type="table" tableValues="0.145"/><feFuncG type="table" tableValues="0.388"/><feFuncB type="table" tableValues="0.922"/></feComponentTransfer><feBlend in="gray" in2="blue" mode="multiply" result="tinted"/><feComponentTransfer><feFuncA type="table" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Stackly Health home">
+        <img class="logo-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+      </a>
+
+      <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+
+      <nav class="mobile-nav" id="mainNav" aria-label="Primary navigation">
+        <div class="mn-header">
+          <a href="index.html" class="mn-brand">
+            <img class="mn-brand-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+          </a>
+          <button class="mn-close" id="navClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="mn-body">
+          <div class="mn-cta glass">
+            <p class="mn-cta-title">Welcome to <strong>Stackly Health</strong></p>
+            <p class="mn-cta-sub">Your trusted partner in smart healthcare coverage.</p>
+            <div class="mn-cta-btns">
+              <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+              <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+          </div>
+          <div class="mn-section mn-nav-section">
+            <span class="mn-section-label">Navigation</span>
+            <ul class="mn-nav-list">
+              <li><a href="index.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-house"></i></span><span class="mn-nav-label">Home</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="plans.html" class="mn-nav-link active"><span class="mn-nav-icon"><i class="fa-solid fa-gem"></i></span><span class="mn-nav-label">Plans</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="claims.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-file-lines"></i></span><span class="mn-nav-label">Claims</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="network.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-hospital"></i></span><span class="mn-nav-label">Network</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="contact.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-envelope"></i></span><span class="mn-nav-label">Contact</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+            </ul>
+          </div>
+          <div class="mn-section">
+            <span class="mn-section-label">Quick Actions</span>
+            <div class="mn-quick-grid">
+              <a href="claims.html" class="mn-quick-pill"><i class="fa-solid fa-file-medical"></i> File a Claim</a>
+              <a href="claims.html" class="mn-quick-pill"><i class="fa-solid fa-magnifying-glass-location"></i> Track Claim</a>
+              <a href="network.html" class="mn-quick-pill"><i class="fa-solid fa-stethoscope"></i> Find Hospitals</a>
+            </div>
+          </div>
+          <div class="mn-feature">
+            <div class="mn-feature-inner">
+              <div class="mn-feature-stat"><i class="fa-solid fa-hospital"></i><strong>10,000+</strong><span>Cashless Hospitals</span></div>
+              <div class="mn-feature-stat"><i class="fa-solid fa-chart-line"></i><strong>98%</strong><span>Claim Success</span></div>
+            </div>
+          </div>
+          <div class="mn-section">
+            <span class="mn-section-label">Support</span>
+            <div class="mn-support-list">
+              <a href="tel:+18001234567" class="mn-support-item"><span class="mn-support-icon"><i class="fa-solid fa-phone"></i></span><div><strong>Call Us</strong><span>+1 (800) 123-4567</span></div></a>
+              <a href="mailto:support@stackly.health" class="mn-support-item"><span class="mn-support-icon"><i class="fa-solid fa-envelope"></i></span><div><strong>Email Support</strong><span>support@stackly.health</span></div></a>
+            </div>
+          </div>
+        </div>
+        <div class="mn-footer">
+          <div class="mn-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <p>&copy; 2026 Stackly Health. All rights reserved.</p>
+        </div>
+        <div class="mn-desktop-actions"><a href="login.html" class="btn btn-ghost btn-sm">Login</a><a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a></div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO PLANS -->
+    <section class="plans-hero" id="plans-hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-bg-image" aria-hidden="true">
+        <img src="assets/images/plans-hero-bg.webp" alt="" width="1200" height="675" />
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">Transparent Pricing</span>
+          <h1>Flexible Plans Designed for Every Life Stage</h1>
+          <p class="hero-sub">No hidden clauses. No surprises. Just coverage that works when you need it most.</p>
+          <div class="hero-actions">
+            <a href="#pricing-cards" class="btn btn-primary btn-lg">Compare Plans</a>
+            <a href="#custom-builder" class="btn btn-glass btn-lg">Get Started</a>
+          </div>
+        </div>
+        <div class="plans-hero-visual">
+          <div class="floating-plan card-1">
+            <div class="plan-thumb"><img src="assets/images/plans-basic.webp" alt="Basic plan" width="160" height="120" /></div>
+            <h4>Basic</h4>
+            <p>₹499/mo</p>
+          </div>
+          <div class="floating-plan card-2">
+            <div class="plan-thumb"><img src="assets/images/plans-premium.webp" alt="Premium plan" width="160" height="120" /></div>
+            <h4>Premium</h4>
+            <p>₹1,299/mo</p>
+          </div>
+          <div class="floating-plan card-3">
+            <div class="plan-thumb"><img src="assets/images/plans-family.webp" alt="Family plan" width="160" height="120" /></div>
+            <h4>Family</h4>
+            <p>₹2,499/mo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER TOGGLE -->
+    <section class="filter-toggle" id="filter-toggle">
+      <div class="filter-bg" aria-hidden="true"><img src="assets/images/plans-table-bg.webp" alt="" width="800" height="600" /></div>
+      <div class="container">
+        <div class="toggle-group" role="group" aria-label="Plan type filter">
+          <button class="toggle-btn active" data-filter="individual">Individual</button>
+          <button class="toggle-btn" data-filter="family">Family</button>
+          <button class="toggle-btn" data-filter="senior">Senior</button>
+        </div>
+        <div class="billing-toggle">
+          <span>Monthly</span>
+          <label class="switch">
+            <input type="checkbox" id="billing-switch" />
+            <span class="toggle-slider round"></span>
+          </label>
+          <span>Yearly <span class="discount">Save 20%</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING CARDS -->
+    <section class="pricing-cards" id="pricing-cards">
+      <div class="container">
+        <div class="plans-grid">
+          <!-- BASIC -->
+          <article class="plan-card reveal" data-plan="basic" style="--stagger:0.1s">
+            <div class="plan-badge">Basic</div>
+            <div class="plan-card-img"><img src="assets/images/plans-basic.webp" alt="Basic plan for young professionals" width="640" height="480" /></div>
+            <div class="plan-card-body">
+              <p class="plan-for">For young professionals</p>
+              <div class="plan-price"><span class="currency">₹</span><span class="price-val">499</span><span class="period">/mo</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> ₹3 lakh sum insured</li>
+                <li><i class="fa-solid fa-check"></i> 5,000+ cashless hospitals</li>
+                <li><i class="fa-solid fa-check"></i> Basic health checkups</li>
+                <li class="missing"><i class="fa-solid fa-xmark"></i> Critical illness cover</li>
+                <li class="missing"><i class="fa-solid fa-xmark"></i> Family floater</li>
+              </ul>
+              <a href="#" class="btn btn-secondary btn-block">Get Basic</a>
+            </div>
+          </article>
+
+          <!-- PREMIUM (FEATURED) -->
+          <article class="plan-card plan-featured reveal" data-plan="premium" style="--stagger:0.2s">
+            <div class="plan-badge">Most Popular</div>
+            <div class="plan-card-img"><img src="assets/images/plans-premium.webp" alt="Premium plan for growing families" width="640" height="480" /></div>
+            <div class="plan-card-body">
+              <p class="plan-for">For growing families</p>
+              <div class="plan-price"><span class="currency">₹</span><span class="price-val">1,299</span><span class="period">/mo</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> ₹10 lakh sum insured</li>
+                <li><i class="fa-solid fa-check"></i> 10,000+ cashless hospitals</li>
+                <li><i class="fa-solid fa-check"></i> Annual full-body checkups</li>
+                <li><i class="fa-solid fa-check"></i> Critical illness cover</li>
+                <li><i class="fa-solid fa-check"></i> Family floater included</li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-block">Get Premium</a>
+            </div>
+          </article>
+
+          <!-- FAMILY -->
+          <article class="plan-card reveal" data-plan="family" style="--stagger:0.3s">
+            <div class="plan-badge">Family</div>
+            <div class="plan-card-img"><img src="assets/images/plans-family.webp" alt="Family plan for complete protection" width="640" height="480" /></div>
+            <div class="plan-card-body">
+              <p class="plan-for">For complete protection</p>
+              <div class="plan-price"><span class="currency">₹</span><span class="price-val">2,499</span><span class="period">/mo</span></div>
+              <ul class="plan-features">
+                <li><i class="fa-solid fa-check"></i> ₹25 lakh sum insured</li>
+                <li><i class="fa-solid fa-check"></i> Unlimited network hospitals</li>
+                <li><i class="fa-solid fa-check"></i> Quarterly health checkups</li>
+                <li><i class="fa-solid fa-check"></i> Critical + accident cover</li>
+                <li><i class="fa-solid fa-check"></i> Parents included</li>
+              </ul>
+              <a href="#" class="btn btn-secondary btn-block">Get Family</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="comparison" id="comparison">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Feature Comparison</span>
+          <h2>Side-by-side breakdown</h2>
+        </div>
+        <div class="table-wrap reveal" style="--stagger:0.2s">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th class="sticky-col">Feature</th>
+                <th>Basic</th>
+                <th class="highlight">Premium</th>
+                <th>Family</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="sticky-col">Sum Insured</td>
+                <td>₹3 Lakh</td>
+                <td class="highlight">₹10 Lakh</td>
+                <td>₹25 Lakh</td>
+              </tr>
+              <tr>
+                <td class="sticky-col">Cashless Hospitals</td>
+                <td>5,000+</td>
+                <td class="highlight">10,000+</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td class="sticky-col">Health Checkups</td>
+                <td>Basic</td>
+                <td class="highlight">Annual Full</td>
+                <td>Quarterly</td>
+              </tr>
+              <tr>
+                <td class="sticky-col">Critical Illness</td>
+                <td><i class="fa-solid fa-xmark"></i></td>
+                <td class="highlight"><i class="fa-solid fa-check"></i></td>
+                <td><i class="fa-solid fa-check"></i></td>
+              </tr>
+              <tr>
+                <td class="sticky-col">Family Floater</td>
+                <td><i class="fa-solid fa-xmark"></i></td>
+                <td class="highlight"><i class="fa-solid fa-check"></i></td>
+                <td><i class="fa-solid fa-check"></i></td>
+              </tr>
+              <tr>
+                <td class="sticky-col">Parents Coverage</td>
+                <td><i class="fa-solid fa-xmark"></i></td>
+                <td class="highlight"><i class="fa-solid fa-xmark"></i></td>
+                <td><i class="fa-solid fa-check"></i></td>
+              </tr>
+              <tr>
+                <td class="sticky-col">Monthly Price</td>
+                <td>₹499</td>
+                <td class="highlight">₹1,299</td>
+                <td>₹2,499</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOM BUILDER -->
+    <section class="builder" id="custom-builder">
+      <div class="builder-bg" aria-hidden="true"><img src="assets/images/plans-builder-bg.webp" alt="" width="800" height="600" /></div>
+      <div class="container builder-grid">
+        <div class="builder-controls reveal">
+          <div class="control-card">
+            <label for="coverage-slider">Coverage Amount</label>
+            <input type="range" id="coverage-slider" min="3" max="50" value="10" step="1" />
+            <div class="slider-labels"><span>₹3L</span><span>₹50L</span></div>
+            <div class="current-val">₹<span id="coverage-val">10</span> Lakh</div>
+          </div>
+          <div class="control-card">
+            <label for="age-slider">Age Group</label>
+            <input type="range" id="age-slider" min="18" max="65" value="30" step="1" />
+            <div class="slider-labels"><span>18</span><span>65</span></div>
+            <div class="current-val"><span id="age-val">30</span> years</div>
+          </div>
+          <div class="control-card">
+            <label>Add-ons</label>
+            <div class="addon-options">
+              <button class="addon-btn active" data-addon="none">None</button>
+              <button class="addon-btn" data-addon="dental">Dental</button>
+              <button class="addon-btn" data-addon="maternity">Maternity</button>
+            </div>
+          </div>
+        </div>
+        <div class="builder-summary reveal" style="--stagger:0.2s">
+          <div class="summary-card glass">
+            <h3>Your Estimated Premium</h3>
+            <div class="summary-price">₹<span id="summary-price">1,299</span>/mo</div>
+            <p>Based on your selections, we recommend the <strong>Premium</strong> plan.</p>
+            <a href="#" class="btn btn-primary btn-block">Get Covered Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COVERAGE HIGHLIGHTS -->
+    <section class="highlights" id="highlights">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">What's Covered</span>
+          <h2>Comprehensive protection at every step</h2>
+        </div>
+        <div class="highlights-grid">
+          <article class="highlight-card highlight-lg reveal" style="--stagger:0.1s">
+            <div class="highlight-media"><img src="assets/images/hospital-1.webp" alt="Hospitalization coverage" width="640" height="480" /></div>
+            <div class="highlight-body">
+              <div class="highlight-icon"><i class="fa-solid fa-hospital"></i></div>
+              <h3>Hospitalization</h3>
+              <p>Full coverage for room, boarding, nursing, and ICU charges at network hospitals.</p>
+            </div>
+          </article>
+          <article class="highlight-card reveal" style="--stagger:0.2s">
+            <div class="highlight-media"><img src="assets/images/why-support.webp" alt="OPD consultations" width="640" height="480" /></div>
+            <div class="highlight-body">
+              <div class="highlight-icon"><i class="fa-solid fa-user-doctor"></i></div>
+              <h3>OPD Consultations</h3>
+              <p>Outpatient visits, diagnostic tests, and preventive health checkups.</p>
+            </div>
+          </article>
+          <article class="highlight-card reveal" style="--stagger:0.3s">
+            <div class="highlight-media"><img src="assets/images/why-ai.webp" alt="Critical illness cover" width="640" height="480" /></div>
+            <div class="highlight-body">
+              <div class="highlight-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+              <h3>Critical Illness</h3>
+              <p>Lump-sum payout upon diagnosis of major illnesses like cancer, stroke, or heart attack.</p>
+            </div>
+          </article>
+          <article class="highlight-card reveal" style="--stagger:0.4s">
+            <div class="highlight-media"><img src="assets/images/hero.webp" alt="Maternity benefit" width="640" height="480" /></div>
+            <div class="highlight-body">
+              <div class="highlight-icon"><i class="fa-solid fa-baby"></i></div>
+              <h3>Maternity</h3>
+              <p>Comprehensive maternity coverage including prenatal, delivery, and postnatal care.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="trust" id="trust">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Trusted by Members</span>
+          <h2>Real stories from real families</h2>
+        </div>
+        <div class="slider reveal" aria-roledescription="carousel" aria-label="Member testimonials">
+          <button class="slider-arrow prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="slider-viewport">
+            <div class="slider-track" id="testimonialTrack">
+              <article class="testimonial">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"The family plan saved us during my daughter's emergency surgery. Everything was cashless and stress-free."</p>
+                <div class="author"><img src="assets/images/avatar-1.webp" alt="Ananya portrait" width="60" height="60" /><div><strong>Ananya R.</strong><span>Bengaluru</span></div></div>
+              </article>
+              <article class="testimonial">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"Switching to Premium was the best decision. The annual checkup caught my cholesterol early."</p>
+                <div class="author"><img src="assets/images/avatar-2.webp" alt="Rohan portrait" width="60" height="60" /><div><strong>Rohan M.</strong><span>Mumbai</span></div></div>
+              </article>
+              <article class="testimonial">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="quote">"The maternity coverage was comprehensive. From prenatal visits to delivery, everything was handled."</p>
+                <div class="author"><img src="assets/images/avatar-3.webp" alt="Sneha portrait" width="60" height="60" /><div><strong>Sneha K.</strong><span>Delhi</span></div></div>
+              </article>
+              <article class="testimonial">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"As a senior citizen, I was worried about hidden costs. The Family plan gives me complete peace of mind."</p>
+                <div class="author"><img src="assets/images/avatar-4.webp" alt="Priya portrait" width="60" height="60" /><div><strong>Priya S.</strong><span>Hyderabad</span></div></div>
+              </article>
+            </div>
+          </div>
+          <button class="slider-arrow next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" id="final-cta">
+      <div class="cta-bg" aria-hidden="true"><img src="assets/images/plans-cta-bg.webp" alt="" width="800" height="450" /></div>
+      <div class="container cta-inner reveal">
+        <div class="cta-glass">
+          <h2>Find the Right Plan Today</h2>
+          <p>Join over 2 million members who trust Stackly for smarter, simpler health insurance.</p>
+          <a href="#pricing-cards" class="btn btn-primary btn-lg">Start Your Coverage</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="logo-text">Stackly <span>Health</span></span>
+          </a>
+          <p>Premium health insurance designed for modern lives. Fast claims, trusted hospitals, and intelligent coverage.</p>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="plans.html">Health Plans</a></li>
+            <li><a href="claims.html">Claims</a></li>
+            <li><a href="network.html">Hospital Network</a></li>
+            <li><a href="index.html#ai-insurance">AI Features</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Get health tips and product updates in your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" required aria-label="Email address" />
+            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Health Insurance Portal. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

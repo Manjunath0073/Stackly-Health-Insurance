@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Login to Stackly Health Insurance Portal — access your claims, plans, and coverage." />
+  <title>Login — Stackly Health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-body">
+  <svg class="sr-only-svg" aria-hidden="true"><defs><filter id="logoRecolor"><feColorMatrix type="saturate" values="0" result="gray"/><feComponentTransfer result="blue"><feFuncR type="table" tableValues="0.145"/><feFuncG type="table" tableValues="0.388"/><feFuncB type="table" tableValues="0.922"/></feComponentTransfer><feBlend in="gray" in2="blue" mode="multiply" result="tinted"/><feComponentTransfer><feFuncA type="table" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>
+
+  <!-- AUTH SECTION -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <!-- LEFT: Image -->
+      <div class="auth-visual">
+        <div class="auth-visual-inner">
+          <img src="assets/images/auth-login.webp" alt="Secure healthcare portal" width="600" height="800" loading="eager" />
+          <div class="auth-visual-overlay"></div>
+          <div class="auth-visual-content">
+            <span class="eyebrow">Welcome Back</span>
+            <h2>Your health journey continues here</h2>
+            <p>Access your claims, track coverage, and manage your family's health — all in one place.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form Card -->
+      <div class="auth-form-wrap">
+        <div class="auth-card">
+          <!-- Card top: logo + go home -->
+          <div class="auth-card-top">
+            <a href="index.html" class="logo" aria-label="Stackly Health home">
+              <img class="logo-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+            </a>
+            <a href="index.html" class="auth-home-link">
+              <i class="fa-solid fa-arrow-left"></i> Go Home
+            </a>
+          </div>
+
+          <div class="auth-card-header">
+            <h1>Sign in to Stackly</h1>
+            <p>Enter your credentials to access your health portal</p>
+          </div>
+
+          <!-- Role Selector -->
+          <div class="auth-role-selector">
+            <button type="button" class="auth-role-btn active" data-role="member">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>Member</span>
+            </button>
+            <button type="button" class="auth-role-btn" data-role="provider">
+              <i class="fa-solid fa-hospital"></i>
+              <span>Provider</span>
+            </button>
+            <div class="auth-role-slider"></div>
+          </div>
+
+          <form class="auth-form" id="loginForm" novalidate>
+            <input type="hidden" name="role" id="loginRole" value="member" />
+
+            <div class="form-group" data-validate="email">
+              <label for="loginEmail">Email Address</label>
+              <div class="input-field">
+                <span class="input-icon"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" id="loginEmail" name="email" placeholder="you@example.com" autocomplete="email" required />
+              </div>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group" data-validate="password">
+              <label for="loginPassword">Password</label>
+              <div class="input-field">
+                <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" id="loginPassword" name="password" placeholder="Enter your password" autocomplete="current-password" required />
+                <button type="button" class="input-action password-toggle" aria-label="Toggle password visibility" data-target="loginPassword">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+
+            <div class="auth-form-row">
+              <label class="auth-checkbox">
+                <input type="checkbox" id="rememberMe" name="remember" />
+                <span class="auth-checkbox-mark"></span>
+                Remember me
+              </label>
+              <a href="#" class="auth-link">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg auth-submit">
+              <span class="auth-submit-text">Login</span>
+              <i class="fa-solid fa-arrow-right auth-submit-icon"></i>
+            </button>
+          </form>
+
+          <div class="form-success" id="loginSuccess">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <strong>Login Successful!</strong>
+              <p>Redirecting you to your dashboard...</p>
+            </div>
+          </div>
+
+          <div class="auth-card-footer">
+            <p>Don't have an account? <a href="signup.html" class="auth-link-strong">Sign up</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

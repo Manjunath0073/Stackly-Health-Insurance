@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stackly Health Insurance - Find 10,000+ cashless hospitals across India." />
+  <title>Hospital Network - Stackly Health Insurance Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+  <svg class="sr-only-svg" aria-hidden="true"><defs><filter id="logoRecolor"><feColorMatrix type="saturate" values="0" result="gray"/><feComponentTransfer result="blue"><feFuncR type="table" tableValues="0.145"/><feFuncG type="table" tableValues="0.388"/><feFuncB type="table" tableValues="0.922"/></feComponentTransfer><feBlend in="gray" in2="blue" mode="multiply" result="tinted"/><feComponentTransfer><feFuncA type="table" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Stackly Health home">
+        <img class="logo-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+      </a>
+
+      <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+
+      <nav class="mobile-nav" id="mainNav" aria-label="Primary navigation">
+        <div class="mn-header">
+          <a href="index.html" class="mn-brand"><img class="mn-brand-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" /></a>
+          <button class="mn-close" id="navClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="mn-body">
+          <div class="mn-cta glass">
+            <p class="mn-cta-title">Welcome to <strong>Stackly Health</strong></p>
+            <p class="mn-cta-sub">Your trusted partner in smart healthcare coverage.</p>
+            <div class="mn-cta-btns"><a href="login.html" class="btn btn-ghost btn-sm">Login</a><a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a></div>
+          </div>
+          <div class="mn-section mn-nav-section">
+            <span class="mn-section-label">Navigation</span>
+            <ul class="mn-nav-list">
+              <li><a href="index.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-house"></i></span><span class="mn-nav-label">Home</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="plans.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-gem"></i></span><span class="mn-nav-label">Plans</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="claims.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-file-lines"></i></span><span class="mn-nav-label">Claims</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="network.html" class="mn-nav-link active"><span class="mn-nav-icon"><i class="fa-solid fa-hospital"></i></span><span class="mn-nav-label">Network</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="contact.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-envelope"></i></span><span class="mn-nav-label">Contact</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+            </ul>
+          </div>
+          <div class="mn-section">
+            <span class="mn-section-label">Quick Actions</span>
+            <div class="mn-quick-grid">
+              <a href="claims.html" class="mn-quick-pill"><i class="fa-solid fa-file-medical"></i> File a Claim</a>
+              <a href="claims.html" class="mn-quick-pill"><i class="fa-solid fa-magnifying-glass-location"></i> Track Claim</a>
+              <a href="network.html" class="mn-quick-pill"><i class="fa-solid fa-stethoscope"></i> Find Hospitals</a>
+            </div>
+          </div>
+          <div class="mn-feature"><div class="mn-feature-inner"><div class="mn-feature-stat"><i class="fa-solid fa-hospital"></i><strong>10,000+</strong><span>Cashless Hospitals</span></div><div class="mn-feature-stat"><i class="fa-solid fa-chart-line"></i><strong>98%</strong><span>Claim Success</span></div></div></div>
+          <div class="mn-section">
+            <span class="mn-section-label">Support</span>
+            <div class="mn-support-list">
+              <a href="tel:+18001234567" class="mn-support-item"><span class="mn-support-icon"><i class="fa-solid fa-phone"></i></span><div><strong>Call Us</strong><span>+1 (800) 123-4567</span></div></a>
+              <a href="mailto:support@stackly.health" class="mn-support-item"><span class="mn-support-icon"><i class="fa-solid fa-envelope"></i></span><div><strong>Email Support</strong><span>support@stackly.health</span></div></a>
+            </div>
+          </div>
+        </div>
+        <div class="mn-footer"><div class="mn-social"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></div><p>&copy; 2026 Stackly Health. All rights reserved.</p></div>
+        <div class="mn-desktop-actions"><a href="login.html" class="btn btn-ghost btn-sm">Login</a><a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a></div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="net-hero" id="net-hero">
+      <div class="net-hero-glow" aria-hidden="true"></div>
+      <div class="net-hero-bg">
+        <img src="assets/images/network-hero.webp" alt="" width="1400" height="800" />
+      </div>
+      <div class="container net-hero-content">
+        <span class="eyebrow">Hospital Network</span>
+        <h1>Access <span class="gradient-text">10,000+</span> Cashless Hospitals Near You</h1>
+        <p class="hero-sub">Find top-rated hospitals in your city that accept Stackly cashless coverage. No upfront payments, no paperwork — just walk in and get treated.</p>
+        <div class="hero-actions">
+          <a href="#net-search" class="btn btn-primary btn-lg"><i class="fa-solid fa-magnifying-glass"></i> Find Hospitals</a>
+          <a href="#net-map" class="btn btn-glass btn-lg"><i class="fa-solid fa-shield-halved"></i> Check Coverage</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>10k+</strong><span>Hospitals</span></div>
+          <div class="stat"><strong>500+</strong><span>Cities</span></div>
+          <div class="stat"><strong>95%</strong><span>Approval rate</span></div>
+        </div>
+        <!-- Floating search bar preview -->
+        <div class="net-hero-search-preview glass">
+          <div class="net-hero-search-inner">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Search hospitals by city, specialty, or name...</span>
+            <button class="btn btn-primary btn-sm">Search</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ADVANCED SEARCH + FILTER -->
+    <section class="net-search" id="net-search">
+      <div class="container">
+        <div class="net-search-card glass">
+          <div class="net-search-row">
+            <div class="net-search-input">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="text" id="netLocationInput" placeholder="Enter city or pincode" aria-label="Location" />
+            </div>
+            <div class="net-search-input">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="netNameInput" placeholder="Hospital name" aria-label="Hospital name" />
+            </div>
+            <button class="btn btn-primary" id="netSearchBtn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+          </div>
+          <div class="net-filter-row">
+            <button class="net-filter-pill active" data-filter="all"><i class="fa-solid fa-globe"></i> All Hospitals</button>
+            <button class="net-filter-pill" data-filter="cashless"><i class="fa-solid fa-money-bill-wave"></i> Cashless</button>
+            <button class="net-filter-pill" data-filter="top-rated"><i class="fa-solid fa-star"></i> Top Rated</button>
+            <button class="net-filter-pill" data-filter="24-7"><i class="fa-solid fa-clock"></i> 24/7 Open</button>
+            <div class="net-filter-dropdown">
+              <select id="netSpecialtyFilter" aria-label="Specialty">
+                <option value="">All Specialties</option>
+                <option>Cardiology</option>
+                <option>Orthopedics</option>
+                <option>Maternity</option>
+                <option>Neurology</option>
+                <option>Oncology</option>
+                <option>General Surgery</option>
+              </select>
+            </div>
+            <div class="net-filter-dropdown">
+              <select id="netRatingFilter" aria-label="Minimum rating">
+                <option value="">Any Rating</option>
+                <option value="4.5">4.5+ Stars</option>
+                <option value="4">4+ Stars</option>
+                <option value="3.5">3.5+ Stars</option>
+              </select>
+            </div>
+          </div>
+          <div class="net-search-tags" id="netSearchTags"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MAP + LIST VIEW -->
+    <section class="net-map-section" id="net-map">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Explore Nearby</span>
+          <h2>Hospitals in your area</h2>
+          <p>Switch between list and map views to find the best hospital near you.</p>
+        </div>
+        <div class="net-view-toggle">
+          <button class="net-view-btn active" data-view="list"><i class="fa-solid fa-list"></i> List</button>
+          <button class="net-view-btn" data-view="map"><i class="fa-solid fa-map"></i> Map</button>
+        </div>
+        <div class="net-split">
+          <div class="net-hospital-list" id="netHospitalList">
+            <!-- List items populated by JS -->
+          </div>
+          <div class="net-map-area" id="netMapArea">
+            <div class="net-map-placeholder">
+              <div class="net-map-grid">
+                <div class="net-map-dot" style="top:20%;left:30%" data-hospital="0"><i class="fa-solid fa-hospital"></i></div>
+                <div class="net-map-dot" style="top:45%;left:55%" data-hospital="1"><i class="fa-solid fa-hospital"></i></div>
+                <div class="net-map-dot" style="top:30%;left:70%" data-hospital="2"><i class="fa-solid fa-hospital"></i></div>
+                <div class="net-map-dot" style="top:60%;left:40%" data-hospital="3"><i class="fa-solid fa-hospital"></i></div>
+                <div class="net-map-dot" style="top:70%;left:65%" data-hospital="4"><i class="fa-solid fa-hospital"></i></div>
+                <div class="net-map-dot" style="top:15%;left:80%" data-hospital="5"><i class="fa-solid fa-hospital"></i></div>
+                <div class="net-map-dot" style="top:55%;left:20%" data-hospital="6"><i class="fa-solid fa-hospital"></i></div>
+                <div class="net-map-dot" style="top:80%;left:45%" data-hospital="7"><i class="fa-solid fa-hospital"></i></div>
+              </div>
+              <div class="net-map-tooltip" id="netMapTooltip"></div>
+              <p class="net-map-hint"><i class="fa-solid fa-hand-pointer"></i> Click dots to view hospital details</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FEATURED HOSPITALS GRID -->
+    <section class="net-featured" id="net-featured">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Featured Hospitals</span>
+          <h2>Top-rated hospitals in our network</h2>
+          <p>Handpicked hospitals known for excellence in care and seamless cashless experience.</p>
+        </div>
+        <div class="net-featured-grid">
+          <article class="net-feat-card reveal" style="--stagger:0.1s">
+            <div class="net-feat-img"><img src="assets/images/network-featured-1.webp" alt="Apollo Hospital building" width="600" height="400" /></div>
+            <div class="net-feat-badge"><i class="fa-solid fa-circle-check"></i> Cashless</div>
+            <div class="net-feat-body">
+              <div class="net-feat-rating"><i class="fa-solid fa-star"></i> 4.8</div>
+              <h3>Apollo Hospital</h3>
+              <p><i class="fa-solid fa-location-dot"></i> Chennai, Tamil Nadu</p>
+              <div class="net-feat-tags">
+                <span>Cardiology</span><span>Orthopedics</span><span>24/7 ER</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-ghost">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="net-feat-card reveal" style="--stagger:0.2s">
+            <div class="net-feat-img"><img src="assets/images/network-featured-2.webp" alt="Max Healthcare modern facade" width="600" height="400" /></div>
+            <div class="net-feat-badge"><i class="fa-solid fa-circle-check"></i> Cashless</div>
+            <div class="net-feat-body">
+              <div class="net-feat-rating"><i class="fa-solid fa-star"></i> 4.7</div>
+              <h3>Max Super Speciality</h3>
+              <p><i class="fa-solid fa-location-dot"></i> New Delhi, India</p>
+              <div class="net-feat-tags">
+                <span>Neurology</span><span>Oncology</span><span>ICU</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-ghost">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="net-feat-card reveal" style="--stagger:0.3s">
+            <div class="net-feat-img"><img src="assets/images/network-featured-3.webp" alt="Fortis Healthcare team" width="600" height="400" /></div>
+            <div class="net-feat-badge"><i class="fa-solid fa-circle-check"></i> Cashless</div>
+            <div class="net-feat-body">
+              <div class="net-feat-rating"><i class="fa-solid fa-star"></i> 4.6</div>
+              <h3>Fortis Healthcare</h3>
+              <p><i class="fa-solid fa-location-dot"></i> Mumbai, Maharashtra</p>
+              <div class="net-feat-tags">
+                <span>Maternity</span><span>General Surgery</span><span>24/7 ER</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-ghost">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="net-feat-card reveal" style="--stagger:0.4s">
+            <div class="net-feat-img"><img src="assets/images/network-featured-4.webp" alt="Manipal Hospital campus" width="600" height="400" /></div>
+            <div class="net-feat-badge"><i class="fa-solid fa-circle-check"></i> Cashless</div>
+            <div class="net-feat-body">
+              <div class="net-feat-rating"><i class="fa-solid fa-star"></i> 4.9</div>
+              <h3>Manipal Hospital</h3>
+              <p><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka</p>
+              <div class="net-feat-tags">
+                <span>Cardiology</span><span>Transplants</span><span>24/7 ER</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-ghost">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. TRUST METRICS / NETWORK STATS -->
+    <section class="net-stats" id="net-stats">
+      <div class="net-stats-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Network Strength</span>
+          <h2>Trusted by millions across India</h2>
+          <p>Our hospital network grows every day, ensuring quality care is always within reach.</p>
+        </div>
+        <div class="net-stats-grid">
+          <div class="net-stat-card reveal" style="--stagger:0.1s">
+            <div class="net-stat-icon"><i class="fa-solid fa-hospital"></i></div>
+            <div class="net-stat-number" data-target="10000">0</div>
+            <div class="net-stat-suffix">+</div>
+            <p>Partner Hospitals</p>
+          </div>
+          <div class="net-stat-card reveal" style="--stagger:0.2s">
+            <div class="net-stat-icon"><i class="fa-solid fa-city"></i></div>
+            <div class="net-stat-number" data-target="500">0</div>
+            <div class="net-stat-suffix">+</div>
+            <p>Cities Covered</p>
+          </div>
+          <div class="net-stat-card reveal" style="--stagger:0.3s">
+            <div class="net-stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="net-stat-number" data-target="95">0</div>
+            <div class="net-stat-suffix">%</div>
+            <p>Claim Success Rate</p>
+          </div>
+          <div class="net-stat-card reveal" style="--stagger:0.4s">
+            <div class="net-stat-icon"><i class="fa-solid fa-headset"></i></div>
+            <div class="net-stat-number" data-target="24">0</div>
+            <div class="net-stat-suffix">/7</div>
+            <p>Support Available</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SPECIALTY CATEGORIES -->
+    <section class="net-specialties" id="net-specialties">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Specialties</span>
+          <h2>Find hospitals by specialty</h2>
+          <p>Browse our network by medical specialty to find the right care.</p>
+        </div>
+        <div class="net-spec-scroll-wrap">
+          <div class="net-spec-scroll" id="netSpecScroll">
+            <article class="net-spec-card">
+              <div class="net-spec-img"><img src="assets/images/network-cardiology.webp" alt="Cardiology department" width="400" height="300" /></div>
+              <div class="net-spec-overlay">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <h3>Cardiology</h3>
+                <span>2,400+ hospitals</span>
+              </div>
+            </article>
+            <article class="net-spec-card">
+              <div class="net-spec-img"><img src="assets/images/network-ortho.webp" alt="Orthopedics department" width="400" height="300" /></div>
+              <div class="net-spec-overlay">
+                <i class="fa-solid fa-bone"></i>
+                <h3>Orthopedics</h3>
+                <span>1,800+ hospitals</span>
+              </div>
+            </article>
+            <article class="net-spec-card">
+              <div class="net-spec-img"><img src="assets/images/network-maternity.webp" alt="Maternity care" width="400" height="300" /></div>
+              <div class="net-spec-overlay">
+                <i class="fa-solid fa-baby"></i>
+                <h3>Maternity</h3>
+                <span>3,100+ hospitals</span>
+              </div>
+            </article>
+            <article class="net-spec-card">
+              <div class="net-spec-img"><img src="assets/images/network-general.webp" alt="General care" width="400" height="300" /></div>
+              <div class="net-spec-overlay">
+                <i class="fa-solid fa-stethoscope"></i>
+                <h3>General Care</h3>
+                <span>5,200+ hospitals</span>
+              </div>
+            </article>
+            <article class="net-spec-card">
+              <div class="net-spec-img"><img src="assets/images/network-team.webp" alt="Neurology department" width="400" height="300" /></div>
+              <div class="net-spec-overlay">
+                <i class="fa-solid fa-brain"></i>
+                <h3>Neurology</h3>
+                <span>900+ hospitals</span>
+              </div>
+            </article>
+            <article class="net-spec-card">
+              <div class="net-spec-img"><img src="assets/images/network-reception.webp" alt="Oncology department" width="400" height="300" /></div>
+              <div class="net-spec-overlay">
+                <i class="fa-solid fa-ribbon"></i>
+                <h3>Oncology</h3>
+                <span>650+ hospitals</span>
+              </div>
+            </article>
+          </div>
+          <button class="net-spec-nav prev" id="netSpecPrev" aria-label="Scroll left"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="net-spec-nav next" id="netSpecNext" aria-label="Scroll right"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PATIENT EXPERIENCE (REVIEWS) -->
+    <section class="net-reviews" id="net-reviews">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Patient Experience</span>
+          <h2>What patients say about our network</h2>
+        </div>
+        <div class="net-reviews-slider reveal" aria-roledescription="carousel" aria-label="Patient reviews">
+          <button class="slider-arrow prev" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="slider-viewport">
+            <div class="slider-track" id="netReviewsTrack">
+              <article class="net-review-card">
+                <div class="net-review-hospital">
+                  <i class="fa-solid fa-hospital"></i>
+                  <span>Apollo Hospital, Chennai</span>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"The cashless process at Apollo was seamless. I walked in for my father's heart surgery and didn't pay a rupee upfront. Stackly handled everything directly."</p>
+                <div class="author">
+                  <img src="assets/images/avatar-1.webp" alt="Vikram portrait" width="52" height="52" />
+                  <div><strong>Vikram S.</strong><span>Mumbai, Maharashtra</span></div>
+                </div>
+              </article>
+              <article class="net-review-card">
+                <div class="net-review-hospital">
+                  <i class="fa-solid fa-hospital"></i>
+                  <span>Max Healthcare, Delhi</span>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"Found Max through Stackly's network search. The maternity package was comprehensive, and the staff was incredibly supportive throughout."</p>
+                <div class="author">
+                  <img src="assets/images/avatar-2.webp" alt="Priya portrait" width="52" height="52" />
+                  <div><strong>Priya N.</strong><span>New Delhi, India</span></div>
+                </div>
+              </article>
+              <article class="net-review-card">
+                <div class="net-review-hospital">
+                  <i class="fa-solid fa-hospital"></i>
+                  <span>Fortis Healthcare, Mumbai</span>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="quote">"Emergency knee surgery at Fortis was handled flawlessly. The 24/7 support team coordinated everything while I was in the ER. Truly life-saving."</p>
+                <div class="author">
+                  <img src="assets/images/avatar-3.webp" alt="Rajesh portrait" width="52" height="52" />
+                  <div><strong>Rajesh K.</strong><span>Pune, Maharashtra</span></div>
+                </div>
+              </article>
+              <article class="net-review-card">
+                <div class="net-review-hospital">
+                  <i class="fa-solid fa-hospital"></i>
+                  <span>Manipal Hospital, Bengaluru</span>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="quote">"The AI recommendation led me to Manipal for my cardiac checkup. World-class facilities and the cashless claim was approved in under 10 minutes."</p>
+                <div class="author">
+                  <img src="assets/images/avatar-4.webp" alt="Sneha portrait" width="52" height="52" />
+                  <div><strong>Sneha D.</strong><span>Bengaluru, Karnataka</span></div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button class="slider-arrow next" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots" id="netReviewsDots"></div>
+      </div>
+    </section>
+
+    <!-- 8. DIGITAL ACCESS / MOBILE EXPERIENCE -->
+    <section class="net-mobile" id="net-mobile">
+      <div class="container net-mobile-grid">
+        <div class="net-mobile-visual reveal">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="assets/images/network-mobile.webp" alt="Stackly app hospital search screen" width="360" height="640" />
+            </div>
+          </div>
+          <div class="floating-card card-1">
+            <div class="floating-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+            <div><span>Location</span><strong>2.3 km away</strong></div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="floating-icon green"><i class="fa-solid fa-check"></i></div>
+            <div><span>Appointment</span><strong>Booked!</strong></div>
+          </div>
+        </div>
+        <div class="net-mobile-content reveal" style="--stagger:0.2s">
+          <span class="eyebrow">Mobile Experience</span>
+          <h2>Your hospital network, in your pocket</h2>
+          <p>Find hospitals instantly, book appointments, and manage cashless claims — all from the Stackly app.</p>
+          <div class="net-mobile-features">
+            <div class="net-mobile-feature">
+              <div class="net-mobile-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div>
+                <h3>Find Hospitals Instantly</h3>
+                <p>GPS-powered search shows nearby cashless hospitals in real-time.</p>
+              </div>
+            </div>
+            <div class="net-mobile-feature">
+              <div class="net-mobile-icon"><i class="fa-solid fa-calendar-check"></i></div>
+              <div>
+                <h3>Book Appointments</h3>
+                <p>Schedule visits with top doctors at network hospitals directly.</p>
+              </div>
+            </div>
+            <div class="net-mobile-feature">
+              <div class="net-mobile-icon"><i class="fa-solid fa-credit-card"></i></div>
+              <div>
+                <h3>Claim Cashless</h3>
+                <p>Generate digital health cards and process claims on the go.</p>
+              </div>
+            </div>
+          </div>
+          <div class="store-badges">
+            <a href="#" aria-label="Download on App Store"><i class="fa-brands fa-apple"></i> App Store</a>
+            <a href="#" aria-label="Get it on Google Play"><i class="fa-brands fa-google-play"></i> Google Play</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FINAL CTA -->
+    <section class="net-cta" id="net-cta">
+      <div class="net-cta-pattern" aria-hidden="true"></div>
+      <div class="container net-cta-inner reveal">
+        <div class="net-cta-glass">
+          <h2>Find the Right Hospital, Anytime</h2>
+          <p>Join over 2 million members who trust Stackly to connect them with India's best hospitals.</p>
+          <div class="net-cta-actions">
+            <a href="#net-search" class="btn btn-primary btn-lg"><i class="fa-solid fa-magnifying-glass"></i> Search Now</a>
+            <a href="plans.html" class="btn btn-glass btn-lg">Explore Plans</a>
+          </div>
+          <div class="cta-trust-row">
+            <div class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> IRDAI Approved</div>
+            <div class="cta-trust-item"><i class="fa-solid fa-hospital"></i> 10k+ Hospitals</div>
+            <div class="cta-trust-item"><i class="fa-solid fa-clock"></i> 24/7 Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img class="logo-img" src="assets/images/logo-stackly.webp" alt="Stackly Health" width="1000" height="220" />
+          </a>
+          <p>Premium health insurance designed for modern lives. Fast claims, trusted hospitals, and intelligent coverage.</p>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="plans.html">Health Plans</a></li>
+            <li><a href="claims.html">Claims</a></li>
+            <li><a href="network.html">Hospital Network</a></li>
+            <li><a href="index.html#ai-insurance">AI Features</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Get health tips and product updates in your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" required aria-label="Email address" />
+            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly Health Insurance Portal. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
