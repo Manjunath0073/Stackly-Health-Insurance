@@ -44,6 +44,7 @@
             <span class="mn-section-label">Navigation</span>
             <ul class="mn-nav-list">
               <li><a href="index.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-house"></i></span><span class="mn-nav-label">Home</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
+              <li><a href="about.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-people-group"></i></span><span class="mn-nav-label">About</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
               <li><a href="plans.html" class="mn-nav-link active"><span class="mn-nav-icon"><i class="fa-solid fa-gem"></i></span><span class="mn-nav-label">Plans</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
               <li><a href="claims.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-file-lines"></i></span><span class="mn-nav-label">Claims</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
               <li><a href="network.html" class="mn-nav-link"><span class="mn-nav-icon"><i class="fa-solid fa-hospital"></i></span><span class="mn-nav-label">Network</span><i class="fa-solid fa-chevron-right mn-nav-arrow"></i></a></li>
@@ -109,20 +110,45 @@
           </div>
         </div>
         <div class="plans-hero-visual">
-          <div class="floating-plan card-1">
-            <div class="plan-thumb"><img src="assets/images/plans-basic.webp" alt="Basic plan" width="160" height="120" /></div>
-            <h4>Basic</h4>
-            <p>₹499/mo</p>
+          <div class="phv-halo" aria-hidden="true"></div>
+          <div class="phv-ring" aria-hidden="true"></div>
+          <span class="phv-dot pd-1" aria-hidden="true"></span>
+          <span class="phv-dot pd-2" aria-hidden="true"></span>
+          <span class="phv-dot pd-3" aria-hidden="true"></span>
+          <span class="phv-dot pd-4" aria-hidden="true"></span>
+          <span class="phv-orbit-photo" aria-hidden="true"><img src="assets/images/plans-basic.webp" alt="" width="160" height="120" /></span>
+
+          <div class="phv-featured">
+            <span class="phv-featured-badge"><i class="fa-solid fa-crown"></i> Most Popular</span>
+            <div class="phv-featured-head">
+              <div class="phv-featured-thumb"><img src="assets/images/plans-premium.webp" alt="Premium plan" width="160" height="120" /></div>
+              <div class="phv-featured-meta">
+                <h4>Premium</h4>
+                <p>For growing families</p>
+              </div>
+            </div>
+            <div class="phv-featured-price">
+              <span class="phv-currency">₹</span><span class="phv-amount" data-count="1299">1,299</span><span class="phv-period">/month</span>
+            </div>
+            <div class="phv-featured-benefits">
+              <span><i class="fa-solid fa-shield-heart"></i> ₹10L cover</span>
+              <span><i class="fa-solid fa-hospital"></i> 10k+ hospitals</span>
+              <span><i class="fa-solid fa-bolt"></i> Instant claims</span>
+            </div>
+            <a href="404.html" class="phv-featured-btn">Explore Premium <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-          <div class="floating-plan card-2">
-            <div class="plan-thumb"><img src="assets/images/plans-premium.webp" alt="Premium plan" width="160" height="120" /></div>
-            <h4>Premium</h4>
-            <p>₹1,299/mo</p>
+
+          <div class="phv-chip phv-chip-basic">
+            <span class="phv-chip-icon"><i class="fa-solid fa-seedling"></i></span>
+            <div><strong>Basic</strong><span>₹499/mo</span></div>
           </div>
-          <div class="floating-plan card-3">
-            <div class="plan-thumb"><img src="assets/images/plans-family.webp" alt="Family plan" width="160" height="120" /></div>
-            <h4>Family</h4>
-            <p>₹2,499/mo</p>
+          <div class="phv-chip phv-chip-family">
+            <span class="phv-chip-icon"><i class="fa-solid fa-users"></i></span>
+            <div><strong>Family</strong><span>₹2,499/mo</span></div>
+          </div>
+          <div class="phv-chip phv-chip-success">
+            <span class="phv-chip-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+            <div><strong>98%</strong><span>Claim success</span></div>
           </div>
         </div>
       </div>
@@ -475,6 +501,7 @@
             <li><a href="plans.html">Plans</a></li>
             <li><a href="claims.html">Claims</a></li>
             <li><a href="network.html">Network</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>

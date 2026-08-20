@@ -896,6 +896,37 @@
     statNumbers.forEach(el => statsObserver.observe(el));
   }
 
+  // ===== About Page: Stats Count-Up =====
+  const aboutStatNums = document.querySelectorAll('.about-stat-num');
+  if (aboutStatNums.length) {
+    const aboutStatObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseFloat(el.dataset.target);
+          if (prefersReducedMotion || isNaN(target)) {
+            el.textContent = target.toLocaleString('en-IN');
+            aboutStatObserver.unobserve(el);
+            return;
+          }
+          let current = 0;
+          const duration = 1900;
+          const step = target / (duration / 16);
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            el.textContent = Math.floor(current).toLocaleString('en-IN');
+          }, 16);
+          aboutStatObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+    aboutStatNums.forEach(el => aboutStatObserver.observe(el));
+  }
+
   // ===== Network Page: Reviews Slider =====
   const reviewsTrack = document.getElementById('netReviewsTrack');
   const reviewsDots = document.getElementById('netReviewsDots');
