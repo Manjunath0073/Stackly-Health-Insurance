@@ -59,6 +59,7 @@
             </div>
           </div>
           <div class="mn-feature">
+            <span class="mn-feature-label"><i class="fa-solid fa-shield-heart"></i> Why Stackly</span>
             <div class="mn-feature-inner">
               <div class="mn-feature-stat"><i class="fa-solid fa-hospital"></i><strong>10,000+</strong><span>Cashless Hospitals</span></div>
               <div class="mn-feature-stat"><i class="fa-solid fa-chart-line"></i><strong>98%</strong><span>Claim Success</span></div>
@@ -313,43 +314,86 @@
 
     <!-- COVERAGE HIGHLIGHTS -->
     <section class="highlights" id="highlights">
+      <div class="highlights-glow" aria-hidden="true"></div>
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">What's Covered</span>
           <h2>Comprehensive protection at every step</h2>
+          <p>Every Stackly plan bundles core care with smart add-ons, so the coverage grows with your life.</p>
         </div>
-        <div class="highlights-grid">
-          <article class="highlight-card highlight-lg reveal" style="--stagger:0.1s">
-            <div class="highlight-media"><img src="assets/images/hospital-1.webp" alt="Hospitalization coverage" width="640" height="480" /></div>
-            <div class="highlight-body">
-              <div class="highlight-icon"><i class="fa-solid fa-hospital"></i></div>
+
+        <div class="cov-stats reveal" style="--stagger:0.1s">
+          <div class="cov-stat"><i class="fa-solid fa-hospital"></i><strong>10,000+</strong><span>Network Hospitals</span></div>
+          <div class="cov-stat"><i class="fa-solid fa-shield-halved"></i><strong>₹50L</strong><span>Max Sum Insured</span></div>
+          <div class="cov-stat"><i class="fa-solid fa-bolt"></i><strong>98%</strong><span>Claim Success</span></div>
+          <div class="cov-stat"><i class="fa-solid fa-headset"></i><strong>24/7</strong><span>Care Support</span></div>
+        </div>
+
+        <div class="cover-grid">
+          <article class="cover-card cover-feature reveal" style="--stagger:0.2s">
+            <div class="cover-feature-media">
+              <img src="assets/images/hospital-1.webp" alt="Hospitalization coverage" width="640" height="480" />
+            </div>
+            <span class="cover-tag"><i class="fa-solid fa-shield-heart"></i> Core Benefit</span>
+            <div class="cover-feature-body">
+              <div class="cover-icon"><i class="fa-solid fa-hospital"></i></div>
               <h3>Hospitalization</h3>
-              <p>Full coverage for room, boarding, nursing, and ICU charges at network hospitals.</p>
+              <p>Full coverage for room, boarding, nursing, and ICU charges across 10,000+ network hospitals — cashless at admission, with no bills to chase later.</p>
+              <ul class="cover-list">
+                <li><i class="fa-solid fa-circle-check"></i> Room, boarding &amp; ICU</li>
+                <li><i class="fa-solid fa-circle-check"></i> Pre &amp; post hospitalization</li>
+                <li><i class="fa-solid fa-circle-check"></i> Daycare procedures</li>
+              </ul>
             </div>
           </article>
-          <article class="highlight-card reveal" style="--stagger:0.2s">
-            <div class="highlight-media"><img src="assets/images/why-support.webp" alt="OPD consultations" width="640" height="480" /></div>
-            <div class="highlight-body">
-              <div class="highlight-icon"><i class="fa-solid fa-user-doctor"></i></div>
-              <h3>OPD Consultations</h3>
-              <p>Outpatient visits, diagnostic tests, and preventive health checkups.</p>
-            </div>
+
+          <article class="cover-card cover-bg cover-opd reveal" style="--stagger:0.25s">
+            <div class="cover-icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <h3>OPD Consultations</h3>
+            <p>Outpatient visits, diagnostic tests, and preventive checkups — claim-free and paperless.</p>
+            <ul class="cover-list">
+              <li><i class="fa-solid fa-circle-check"></i> Doctor visits &amp; labs</li>
+              <li><i class="fa-solid fa-circle-check"></i> Telemedicine included</li>
+            </ul>
           </article>
-          <article class="highlight-card reveal" style="--stagger:0.3s">
-            <div class="highlight-media"><img src="assets/images/why-ai.webp" alt="Critical illness cover" width="640" height="480" /></div>
-            <div class="highlight-body">
-              <div class="highlight-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-              <h3>Critical Illness</h3>
-              <p>Lump-sum payout upon diagnosis of major illnesses like cancer, stroke, or heart attack.</p>
-            </div>
+
+          <article class="cover-card cover-bg cover-critical reveal" style="--stagger:0.3s">
+            <div class="cover-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h3>Critical Illness</h3>
+            <p>Lump-sum payout on cancer, stroke, or heart attack — money in your account when you need it most.</p>
+            <ul class="cover-list">
+              <li><i class="fa-solid fa-circle-check"></i> 32 major illnesses</li>
+              <li><i class="fa-solid fa-circle-check"></i> Instant payout</li>
+            </ul>
           </article>
-          <article class="highlight-card reveal" style="--stagger:0.4s">
-            <div class="highlight-media"><img src="assets/images/hero.webp" alt="Maternity benefit" width="640" height="480" /></div>
-            <div class="highlight-body">
-              <div class="highlight-icon"><i class="fa-solid fa-baby"></i></div>
-              <h3>Maternity</h3>
-              <p>Comprehensive maternity coverage including prenatal, delivery, and postnatal care.</p>
+
+          <article class="cover-card cover-bg cover-maternity reveal" style="--stagger:0.35s">
+            <div class="cover-icon"><i class="fa-solid fa-baby"></i></div>
+            <h3>Maternity &amp; Newborn</h3>
+            <p>Prenatal, delivery, and postnatal care so you can welcome your little one without worry.</p>
+            <ul class="cover-list">
+              <li><i class="fa-solid fa-circle-check"></i> Delivery &amp; newborn cover</li>
+              <li><i class="fa-solid fa-circle-check"></i> NICU stays</li>
+            </ul>
+          </article>
+
+          <article class="cover-card cover-bg cover-emergency reveal" style="--stagger:0.4s">
+            <div class="cover-icon"><i class="fa-solid fa-truck-medical"></i></div>
+            <h3>Ambulance &amp; Emergency</h3>
+            <p>Emergency ambulance, urgent care, and accident cover that responds the moment you need it.</p>
+            <ul class="cover-list">
+              <li><i class="fa-solid fa-circle-check"></i> 24/7 emergency response</li>
+              <li><i class="fa-solid fa-circle-check"></i> Accident cover</li>
+            </ul>
+          </article>
+
+          <article class="cover-card cover-cta reveal" style="--stagger:0.5s">
+            <div class="cover-cta-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="cover-cta-text">
+              <h3>Not sure what you need?</h3>
+              <p>Use the plan builder to mix add-ons and shape coverage for your exact life stage.</p>
             </div>
+            <a href="#custom-builder" class="btn btn-primary">Build Your Plan</a>
           </article>
         </div>
       </div>

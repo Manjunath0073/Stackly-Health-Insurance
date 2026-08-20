@@ -88,7 +88,10 @@
       if (el && el.offsetTop <= scrollPos) activeId = id;
     });
     navLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+      const href = link.getAttribute('href') || '';
+      if (href.indexOf('#') === 0) {
+        link.classList.toggle('active', href === '#' + activeId);
+      }
     });
   }
   window.addEventListener('scroll', updateActiveNav, { passive: true });
