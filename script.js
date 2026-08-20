@@ -108,6 +108,54 @@
 
   revealEls.forEach((el) => revealObserver.observe(el));
 
+  // ===== Hero rotating word =====
+  const heroWordEl = document.getElementById('heroWord');
+  if (heroWordEl) {
+    const heroWords = ['tomorrow', 'confidence', 'security', 'safety', 'freedom'];
+    let heroWordIndex = 0;
+    const HERO_WORD_DURATION = 400;
+    setInterval(() => {
+      heroWordEl.classList.add('word-out');
+      setTimeout(() => {
+        heroWordIndex = (heroWordIndex + 1) % heroWords.length;
+        heroWordEl.textContent = heroWords[heroWordIndex];
+        heroWordEl.classList.remove('word-out');
+        heroWordEl.classList.add('word-in');
+        setTimeout(() => heroWordEl.classList.remove('word-in'), HERO_WORD_DURATION);
+      }, HERO_WORD_DURATION);
+    }, 2000);
+  }
+
+  // ===== Partners marquee =====
+  const partnersMarquee = document.querySelector('.partners-marquee');
+  if (partnersMarquee && !partnersMarquee.querySelector('.partners-track')) {
+    const partnerNames = [
+      { mark: 'A', name: 'Apollo' },
+      { mark: 'M', name: 'Max Healthcare' },
+      { mark: 'F', name: 'Fortis' },
+      { mark: 'M', name: 'Manipal' },
+      { mark: 'N', name: 'Narayana' }
+    ];
+    const perHalf = Math.max(8, Math.ceil(window.innerWidth / 165) + 1);
+    function buildPartnerGroup() {
+      const group = document.createElement('div');
+      group.className = 'partners-group';
+      for (let i = 0; i < perHalf; i++) {
+        const p = partnerNames[i % partnerNames.length];
+        const el = document.createElement('div');
+        el.className = 'partner-logo';
+        el.innerHTML = '<span class="partner-mark">' + p.mark + '</span><span>' + p.name + '</span>';
+        group.appendChild(el);
+      }
+      return group;
+    }
+    const track = document.createElement('div');
+    track.className = 'partners-track';
+    track.appendChild(buildPartnerGroup());
+    track.appendChild(buildPartnerGroup());
+    partnersMarquee.appendChild(track);
+  }
+
   // ===== Steps line animation =====
   if (stepLine) {
     const stepObserver = new IntersectionObserver(
@@ -257,11 +305,28 @@
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const input = newsletterForm.querySelector('input[type="email"]');
-      if (input && input.value) {
-        alert('Thank you for subscribing! We will keep you updated.');
-        input.value = '';
+      const success = document.getElementById('newsletterSuccess');
+      if (!input) return;
+      const val = input.value.trim();
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      if (!isValid) {
+        newsletterForm.classList.add('error');
+        if (success) { success.className = 'newsletter-success error'; success.textContent = 'Please enter a valid email address.'; }
+        return;
       }
+      newsletterForm.classList.remove('error');
+      if (success) { success.className = 'newsletter-success show'; success.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you for subscribing! Check your inbox.'; }
+      input.value = '';
+      setTimeout(() => { if (success) success.className = 'newsletter-success'; }, 3000);
     });
+    const nlInput = newsletterForm.querySelector('input[type="email"]');
+    if (nlInput) {
+      nlInput.addEventListener('input', () => {
+        newsletterForm.classList.remove('error');
+        const success = document.getElementById('newsletterSuccess');
+        if (success) success.className = 'newsletter-success';
+      });
+    }
   }
 
   // ===== Parallax =====
@@ -1020,7 +1085,7 @@
     function validatePhone() {
       const val = phoneInput.value.trim();
       if (!val) { showError(phoneInput, 'phone-error', 'Please enter your phone number'); return false; }
-      if (!/^\+?[\d\s\-()]{7,15}$/.test(val)) { showError(phoneInput, 'phone-error', 'Please enter a valid phone number'); return false; }
+      if (!/^\d{10,15}$/.test(val)) { showError(phoneInput, 'phone-error', 'Phone number should only contain numbers'); return false; }
       clearError(phoneInput, 'phone-error');
       markValid(phoneInput);
       return true;
@@ -1049,9 +1114,15 @@
     messageInput.addEventListener('blur', validateMessage);
 
     // Live validation on input
-    nameInput.addEventListener('input', () => { if (nameInput.closest('.form-group').classList.contains('error')) validateName(); });
+    nameInput.addEventListener('input', () => {
+      nameInput.value = nameInput.value.replace(/[^A-Za-z\s]/g, '');
+      if (nameInput.closest('.form-group').classList.contains('error')) validateName();
+    });
     emailInput.addEventListener('input', () => { if (emailInput.closest('.form-group').classList.contains('error')) validateEmail(); });
-    phoneInput.addEventListener('input', () => { if (phoneInput.closest('.form-group').classList.contains('error')) validatePhone(); });
+    phoneInput.addEventListener('input', () => {
+      phoneInput.value = phoneInput.value.replace(/[^0-9]/g, '');
+      if (phoneInput.closest('.form-group').classList.contains('error')) validatePhone();
+    });
     messageInput.addEventListener('input', () => { if (messageInput.closest('.form-group').classList.contains('error')) validateMessage(); });
 
     contactForm.addEventListener('submit', (e) => {
@@ -1125,7 +1196,8 @@
   // ===== Auth Pages: Role Selector =====
   document.querySelectorAll('.auth-role-selector').forEach(function (selector) {
     var buttons = selector.querySelectorAll('.auth-role-btn');
-    var hiddenInput = selector.closest('form') ? selector.closest('form').querySelector('input[name="role"]') : null;
+    var container = selector.closest('.auth-card') || selector.closest('form');
+    var hiddenInput = container ? container.querySelector('input[name="role"]') : null;
 
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -1493,9 +1565,9 @@
 
     // Dummy data
     var policies = [
-      { name: 'Gold Health Plan', premium: '$299/mo', coverage: '$500,000', valid: 'Jan 2025 – Dec 2025', img: 'assets/images/dashboard-policy.webp' },
-      { name: 'Family Shield Plus', premium: '$449/mo', coverage: '$1,000,000', valid: 'Mar 2025 – Feb 2026', img: 'assets/images/dashboard-hospital-1.webp' },
-      { name: 'Critical Care Elite', premium: '$199/mo', coverage: '$250,000', valid: 'Jun 2025 – May 2026', img: 'assets/images/dashboard-hospital-2.webp' }
+      { name: 'Gold Health Plan', desc: 'Comprehensive individual coverage', premium: '$299/mo', coverage: '$500,000', valid: 'Jan 2025 – Dec 2025', img: 'assets/images/dashboard-policy.webp', usage: 32, status: 'Active', benefits: ['Cashless', '10k+ Hospitals', 'Add-ons'] },
+      { name: 'Family Shield Plus', desc: 'All-round protection for the whole family', premium: '$449/mo', coverage: '$1,000,000', valid: 'Mar 2025 – Feb 2026', img: 'assets/images/dashboard-hospital-1.webp', usage: 48, status: 'Active', benefits: ['Family Floater', 'Maternity', '24/7 Care'] },
+      { name: 'Critical Care Elite', desc: 'Lump-sum cover for critical illness', premium: '$199/mo', coverage: '$250,000', valid: 'Jun 2025 – May 2026', img: 'assets/images/dashboard-hospital-2.webp', usage: 12, status: 'Active', benefits: ['32 Illnesses', 'Instant Payout', 'No Claim Bonus'] }
     ];
     var claims = [
       { id: 'CLM-2025-001', type: 'Hospitalization', amount: '$4,200', status: 'approved', date: '12 Jul 2025' },
@@ -1506,10 +1578,10 @@
       { id: 'CLM-2025-006', type: 'Surgery', amount: '$12,500', status: 'pending', date: '18 Jul 2025' }
     ];
     var memberHospitals = [
-      { name: 'Metro General Hospital', location: 'Downtown, NY', img: 'assets/images/dashboard-hospital-1.webp' },
-      { name: 'St. Mary\'s Medical Center', location: 'Midtown, NY', img: 'assets/images/dashboard-hospital-2.webp' },
-      { name: 'City Health Clinic', location: 'Uptown, NY', img: 'assets/images/dashboard-hospital-3.webp' },
-      { name: 'Wellness Care Hospital', location: 'Brooklyn, NY', img: 'assets/images/dashboard-hospital-4.webp' }
+      { name: 'Metro General Hospital', location: 'Downtown, NY', img: 'assets/images/dashboard-hospital-1.webp', rating: 4.8, distance: '1.2 mi', cashless: true, specs: ['Cardiology', '24/7 ER', 'ICU'] },
+      { name: 'St. Mary\'s Medical Center', location: 'Midtown, NY', img: 'assets/images/dashboard-hospital-2.webp', rating: 4.7, distance: '2.5 mi', cashless: true, specs: ['Maternity', 'Orthopedics', 'ICU'] },
+      { name: 'City Health Clinic', location: 'Uptown, NY', img: 'assets/images/dashboard-hospital-3.webp', rating: 4.5, distance: '3.1 mi', cashless: true, specs: ['OPD', 'Dental', 'Labs'] },
+      { name: 'Wellness Care Hospital', location: 'Brooklyn, NY', img: 'assets/images/dashboard-hospital-4.webp', rating: 4.9, distance: '0.8 mi', cashless: true, specs: ['Oncology', 'Neurology', '24/7 ER'] }
     ];
     var documents = [
       { name: 'Insurance Policy Document', type: 'PDF • 2.4 MB', icon: 'fa-file-pdf' },
@@ -1545,27 +1617,95 @@
         '</div>';
     }
     function renderPolicies() {
-      return '<div class="dv-header"><h1>My Policies</h1><p>Manage your active health insurance plans.</p></div>' +
-        '<div class="policies-grid">' +
+      return '<div class="dv-header"><span class="dv-eyebrow">Your Coverage</span><h1>My Policies</h1><p>Manage your active health insurance plans.</p></div>' +
+        '<div class="policy-summary">' +
+          '<div class="ps-stat"><span class="ps-icon blue"><i class="fa-solid fa-layer-group"></i></span><div><strong>' + policies.length + '</strong><span>Active Policies</span></div></div>' +
+          '<div class="ps-stat"><span class="ps-icon green"><i class="fa-solid fa-shield-heart"></i></span><div><strong>$1.75M</strong><span>Total Coverage</span></div></div>' +
+          '<div class="ps-stat"><span class="ps-icon amber"><i class="fa-solid fa-calendar-check"></i></span><div><strong>$449</strong><span>Next Premium Due</span></div></div>' +
+          '<div class="ps-stat"><span class="ps-icon red"><i class="fa-solid fa-circle-check"></i></span><div><strong>98%</strong><span>Renewal Success</span></div></div>' +
+        '</div>' +
+        '<div class="premium-policies-grid">' +
           policies.map(function(p) {
-            return '<div class="policy-card"><img class="policy-card-img" src="' + p.img + '" alt="' + p.name + '" /><div class="policy-card-body"><h3>' + p.name + '</h3><div class="policy-meta"><div class="policy-meta-item"><span>Premium</span><strong>' + p.premium + '</strong></div><div class="policy-meta-item"><span>Coverage</span><strong>' + p.coverage + '</strong></div><div class="policy-meta-item"><span>Validity</span><strong>' + p.valid + '</strong></div></div><button class="btn btn-primary btn-sm">View Details</button></div></div>';
+            return '<div class="premium-policy-card">' +
+              '<div class="pp-hero"><img src="' + p.img + '" alt="' + p.name + '" /><div class="pp-hero-overlay"></div><span class="pp-badge"><i class="fa-solid fa-circle-check"></i> ' + p.status + '</span>' +
+                '<div class="pp-hero-body"><span class="pp-plan-label">Plan</span><h3>' + p.name + '</h3><p>' + p.desc + '</p></div>' +
+              '</div>' +
+              '<div class="pp-body">' +
+                '<div class="pp-metrics">' +
+                  '<div class="pp-metric"><span>Sum Insured</span><strong>' + p.coverage + '</strong></div>' +
+                  '<div class="pp-metric"><span>Premium</span><strong>' + p.premium + '</strong></div>' +
+                  '<div class="pp-metric"><span>Valid Till</span><strong>' + p.valid.split(' – ')[1] + '</strong></div>' +
+                '</div>' +
+                '<div class="pp-usage"><div class="pp-usage-head"><span>Coverage Used</span><strong>' + p.usage + '%</strong></div><div class="pp-usage-bar"><span style="width:' + p.usage + '%"></span></div></div>' +
+                '<div class="pp-benefits">' + p.benefits.map(function(b){ return '<span><i class="fa-solid fa-circle-check"></i> ' + b + '</span>'; }).join('') + '</div>' +
+                '<div class="pp-actions"><a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i> View Details</a><a href="404.html" class="btn btn-ghost btn-sm"><i class="fa-solid fa-id-card"></i> Digital Card</a></div>' +
+              '</div>' +
+            '</div>';
           }).join('') +
         '</div>';
     }
     function renderClaims() {
-      return '<div class="dv-header"><h1>Claims</h1><p>Track and manage your insurance claims.</p></div>' +
-        '<div class="claims-controls"><select class="claims-filter"><option>All Status</option><option>Approved</option><option>Pending</option><option>Rejected</option></select></div>' +
-        '<div class="table-wrap"><table class="dash-table"><thead><tr><th>ID</th><th>Type</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead><tbody>' +
+      var approvedCount = claims.filter(function(c){ return c.status === 'approved'; }).length;
+      var pendingCount = claims.filter(function(c){ return c.status === 'pending'; }).length;
+      var rejectedCount = claims.filter(function(c){ return c.status === 'rejected'; }).length;
+      function claimIcon(type) {
+        var t = (type || '').toLowerCase();
+        if (t.indexOf('hospital') > -1) return 'fa-hospital';
+        if (t.indexOf('prescript') > -1) return 'fa-prescription-bottle-medical';
+        if (t.indexOf('dental') > -1) return 'fa-tooth';
+        if (t.indexOf('eye') > -1) return 'fa-eye';
+        if (t.indexOf('lab') > -1) return 'fa-flask';
+        if (t.indexOf('surg') > -1) return 'fa-syringe';
+        return 'fa-file-lines';
+      }
+      return '<div class="dv-header"><span class="dv-eyebrow">Claims Center</span><h1>Claims</h1><p>Track, manage and file your insurance claims.</p></div>' +
+        '<div class="claim-summary">' +
+          '<div class="cs-stat"><span class="cs-icon blue"><i class="fa-solid fa-file-invoice"></i></span><div><strong>' + claims.length + '</strong><span>Total Claims</span></div></div>' +
+          '<div class="cs-stat"><span class="cs-icon green"><i class="fa-solid fa-check-double"></i></span><div><strong>' + approvedCount + '</strong><span>Approved</span></div></div>' +
+          '<div class="cs-stat"><span class="cs-icon amber"><i class="fa-solid fa-clock"></i></span><div><strong>' + pendingCount + '</strong><span>Pending</span></div></div>' +
+          '<div class="cs-stat"><span class="cs-icon red"><i class="fa-solid fa-wallet"></i></span><div><strong>$18.3K</strong><span>Recovered</span></div></div>' +
+        '</div>' +
+        '<div class="file-claim-banner">' +
+          '<div class="fcb-icon"><i class="fa-solid fa-file-circle-plus"></i></div>' +
+          '<div class="fcb-text"><h3>Need to file a new claim?</h3><p>Submit your documents and get a decision in minutes.</p></div>' +
+          '<a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> File a Claim</a>' +
+        '</div>' +
+        '<div class="premium-claims-list">' +
           claims.map(function(c) {
-            return '<tr><td>' + c.id + '</td><td>' + c.type + '</td><td>' + c.amount + '</td><td><span class="status-badge ' + c.status + '">' + c.status.charAt(0).toUpperCase() + c.status.slice(1) + '</span></td><td>' + c.date + '</td></tr>';
+            return '<div class="premium-claim-card ' + c.status + '">' +
+              '<div class="pc-icon ' + c.status + '"><i class="fa-solid ' + claimIcon(c.type) + '"></i></div>' +
+              '<div class="pc-info">' +
+                '<div class="pc-top"><strong>' + c.id + '</strong><span class="status-badge ' + c.status + '">' + c.status.charAt(0).toUpperCase() + c.status.slice(1) + '</span></div>' +
+                '<p>' + c.type + '</p>' +
+                '<span class="pc-date"><i class="fa-solid fa-calendar"></i> ' + c.date + '</span>' +
+              '</div>' +
+              '<div class="pc-amount">' + c.amount + '</div>' +
+            '</div>';
           }).join('') +
-        '</tbody></table></div>';
+        '</div>';
     }
     function renderHospitals() {
-      return '<div class="dv-header"><h1>Hospitals</h1><p>Find cashless hospitals in your network.</p></div>' +
-        '<div class="hospitals-grid">' +
+      return '<div class="dv-header"><span class="dv-eyebrow">Hospital Network</span><h1>Hospitals</h1><p>Find cashless hospitals in your network.</p></div>' +
+        '<div class="hs-summary">' +
+          '<div class="hs-stat"><span class="hs-icon blue"><i class="fa-solid fa-hospital"></i></span><div><strong>10,000+</strong><span>Network Hospitals</span></div></div>' +
+          '<div class="hs-stat"><span class="hs-icon green"><i class="fa-solid fa-building"></i></span><div><strong>500+</strong><span>Cities Covered</span></div></div>' +
+          '<div class="hs-stat"><span class="hs-icon amber"><i class="fa-solid fa-hand-holding-dollar"></i></span><div><strong>100%</strong><span>Cashless</span></div></div>' +
+          '<div class="hs-stat"><span class="hs-icon red"><i class="fa-solid fa-star"></i></span><div><strong>4.8</strong><span>Avg. Rating</span></div></div>' +
+        '</div>' +
+        '<div class="premium-hospitals-grid">' +
           memberHospitals.map(function(h) {
-            return '<div class="hospital-card"><img class="hospital-card-img" src="' + h.img + '" alt="' + h.name + '" /><div class="hospital-card-body"><h4>' + h.name + '</h4><p><i class="fa-solid fa-location-dot"></i> ' + h.location + '</p></div></div>';
+            return '<div class="premium-hospital-card">' +
+              '<div class="ph-hero"><img src="' + h.img + '" alt="' + h.name + '" /><div class="ph-hero-overlay"></div>' +
+                (h.cashless ? '<span class="ph-cashless"><i class="fa-solid fa-circle-check"></i> Cashless</span>' : '') +
+                '<span class="ph-rating"><i class="fa-solid fa-star"></i> ' + h.rating + '</span>' +
+              '</div>' +
+              '<div class="ph-body">' +
+                '<h3>' + h.name + '</h3>' +
+                '<p class="ph-loc"><i class="fa-solid fa-location-dot"></i> ' + h.location + ' <span class="ph-dist"><i class="fa-solid fa-road"></i> ' + h.distance + '</span></p>' +
+                '<div class="ph-specs">' + h.specs.map(function(s){ return '<span>' + s + '</span>'; }).join('') + '</div>' +
+                '<div class="ph-actions"><a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i> View</a><a href="404.html" class="btn btn-ghost btn-sm"><i class="fa-solid fa-location-arrow"></i> Directions</a></div>' +
+              '</div>' +
+            '</div>';
           }).join('') +
         '</div>';
     }
@@ -1573,16 +1713,31 @@
       return '<div class="dv-header"><h1>Documents</h1><p>Access your insurance documents and files.</p></div>' +
         '<div class="docs-list">' +
           documents.map(function(d) {
-            return '<div class="doc-item"><div class="doc-icon"><i class="fa-solid ' + d.icon + '"></i></div><div class="doc-info"><strong>' + d.name + '</strong><span>' + d.type + '</span></div><button class="doc-download"><i class="fa-solid fa-download"></i> Download</button></div>';
+            return '<div class="doc-item"><div class="doc-icon"><i class="fa-solid ' + d.icon + '"></i></div><div class="doc-info"><strong>' + d.name + '</strong><span>' + d.type + '</span></div><a href="404.html" class="doc-download"><i class="fa-solid fa-download"></i> Download</a></div>';
           }).join('') +
         '</div>';
     }
     function renderSettings() {
-      return '<div class="dv-header"><h1>Settings</h1><p>Manage your account preferences.</p></div>' +
-        '<div class="settings-card"><h3>Profile Information</h3>' +
-          '<div class="settings-group"><label>Full Name</label><input type="text" id="settingsName" value="' + uName + '" /></div>' +
-          '<div class="settings-group"><label>Email Address</label><input type="email" id="settingsEmail" value="' + uEmail + '" /></div>' +
-          '<button class="btn btn-primary btn-sm" id="settingsSave">Save Changes</button>' +
+      var initials = uName.split(' ').map(function(w){ return w[0]; }).join('').substring(0,2).toUpperCase();
+      return '<div class="dv-header"><span class="dv-eyebrow">Account Settings</span><h1>Settings</h1><p>Manage your account preferences and security.</p></div>' +
+        '<div class="settings-profile-card">' +
+          '<div class="sp-avatar">' + initials + '</div>' +
+          '<div class="sp-info"><strong>' + uName + '</strong><span>' + uEmail + '</span><em><i class="fa-solid fa-circle-check"></i> ' + uRole.charAt(0).toUpperCase() + uRole.slice(1) + ' Account</em></div>' +
+          '<div class="sp-stats"><div><strong>3</strong><span>Policies</span></div><div><strong>6</strong><span>Claims</span></div><div><strong>2025</strong><span>Member Since</span></div></div>' +
+        '</div>' +
+        '<div class="settings-grid">' +
+          '<div class="settings-card premium-settings-card"><h3><i class="fa-solid fa-user"></i> Profile Information</h3>' +
+            '<div class="settings-group"><label>Full Name</label><div class="setting-input"><i class="fa-solid fa-user"></i><input type="text" id="settingsName" value="' + uName + '" /></div></div>' +
+            '<div class="settings-group"><label>Email Address</label><div class="setting-input"><i class="fa-solid fa-envelope"></i><input type="email" id="settingsEmail" value="' + uEmail + '" /></div></div>' +
+            '<div class="settings-group"><label>Phone Number</label><div class="setting-input"><i class="fa-solid fa-phone"></i><input type="tel" value="+1 555 000 1234" /></div></div>' +
+            '<button class="btn btn-primary btn-sm" id="settingsSave"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>' +
+          '</div>' +
+          '<div class="settings-card premium-settings-card"><h3><i class="fa-solid fa-shield-halved"></i> Security & Preferences</h3>' +
+            '<div class="settings-group"><label>New Password</label><div class="setting-input"><i class="fa-solid fa-lock"></i><input type="password" placeholder="Enter new password" /></div></div>' +
+            '<div class="settings-toggle-row"><div><strong>Email Notifications</strong><span>Receive policy updates and reminders</span></div><label class="st-switch"><input type="checkbox" checked /><span></span></label></div>' +
+            '<div class="settings-toggle-row"><div><strong>Two-Factor Auth</strong><span>Add an extra layer of security</span></div><label class="st-switch"><input type="checkbox" checked /><span></span></label></div>' +
+            '<a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-key"></i> Update Password</a>' +
+          '</div>' +
         '</div>';
     }
 
@@ -1753,18 +1908,18 @@
       { id: 'CLM-2025-008', patient: 'David Brown', hospital: 'Wellness Care', amount: 3200, status: 'pending', date: '22 Jul 2025', type: 'Hospitalization' }
     ];
     var provPatients = [
-      { name: 'Sarah Johnson', policy: 'POL-1001', claims: 3, avatar: 'SJ' },
-      { name: 'Michael Chen', policy: 'POL-1002', claims: 1, avatar: 'MC' },
-      { name: 'Emily Davis', policy: 'POL-1003', claims: 2, avatar: 'ED' },
-      { name: 'James Wilson', policy: 'POL-1004', claims: 1, avatar: 'JW' },
-      { name: 'Lisa Anderson', policy: 'POL-1005', claims: 4, avatar: 'LA' },
-      { name: 'Robert Taylor', policy: 'POL-1006', claims: 2, avatar: 'RT' }
+      { name: 'Sarah Johnson', policy: 'POL-1001', claims: 3, avatar: 'SJ', status: 'active', coverage: '$500K', lastVisit: '12 Jul', condition: 'Cardiology' },
+      { name: 'Michael Chen', policy: 'POL-1002', claims: 1, avatar: 'MC', status: 'active', coverage: '$250K', lastVisit: '28 Jun', condition: 'General' },
+      { name: 'Emily Davis', policy: 'POL-1003', claims: 2, avatar: 'ED', status: 'active', coverage: '$1M', lastVisit: '05 Jul', condition: 'Maternity' },
+      { name: 'James Wilson', policy: 'POL-1004', claims: 1, avatar: 'JW', status: 'inactive', coverage: '$500K', lastVisit: '15 Jun', condition: 'Orthopedics' },
+      { name: 'Lisa Anderson', policy: 'POL-1005', claims: 4, avatar: 'LA', status: 'active', coverage: '$750K', lastVisit: '01 Jul', condition: 'Oncology' },
+      { name: 'Robert Taylor', policy: 'POL-1006', claims: 2, avatar: 'RT', status: 'active', coverage: '$300K', lastVisit: '18 Jul', condition: 'Neurology' }
     ];
     var provHospitals = [
-      { name: 'Metro General Hospital', city: 'Downtown, NY', status: 'active', img: 'assets/images/dashboard-hospital-1.webp' },
-      { name: 'St. Mary\'s Medical Center', city: 'Midtown, NY', status: 'active', img: 'assets/images/dashboard-hospital-2.webp' },
-      { name: 'City Health Clinic', city: 'Uptown, NY', status: 'active', img: 'assets/images/dashboard-hospital-3.webp' },
-      { name: 'Wellness Care Hospital', city: 'Brooklyn, NY', status: 'inactive', img: 'assets/images/dashboard-hospital-4.webp' }
+      { name: 'Metro General Hospital', city: 'Downtown, NY', status: 'active', img: 'assets/images/dashboard-hospital-1.webp', beds: 320, rating: 4.8, depts: ['Cardiology', 'ICU', '24/7 ER'], partner: '2019' },
+      { name: 'St. Mary\'s Medical Center', city: 'Midtown, NY', status: 'active', img: 'assets/images/dashboard-hospital-2.webp', beds: 450, rating: 4.7, depts: ['Maternity', 'Orthopedics', 'ICU'], partner: '2018' },
+      { name: 'City Health Clinic', city: 'Uptown, NY', status: 'active', img: 'assets/images/dashboard-hospital-3.webp', beds: 120, rating: 4.5, depts: ['OPD', 'Dental', 'Labs'], partner: '2021' },
+      { name: 'Wellness Care Hospital', city: 'Brooklyn, NY', status: 'inactive', img: 'assets/images/dashboard-hospital-4.webp', beds: 260, rating: 4.9, depts: ['Oncology', 'Neurology', '24/7 ER'], partner: '2020' }
     ];
     var provNotifs = [
       { text: 'New claim submitted by Sarah Johnson', sub: 'Hospitalization • $4,200', icon: 'fa-file-circle-plus', color: 'blue', time: '2 min ago', unread: true },
@@ -1823,32 +1978,88 @@
     }
 
     function renderProvClaims() {
-      return '<div class="dv-header"><h1>Claims Management</h1><p>Review and manage patient insurance claims.</p></div>' +
-        '<div class="claims-controls"><select class="claims-filter" id="provClaimFilter"><option value="all">All Status</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></div>' +
-        '<div class="table-wrap"><table class="dash-table" id="provClaimsTable"><thead><tr><th>ID</th><th>Patient</th><th>Hospital</th><th>Amount</th><th>Status</th><th>Date</th><th>Action</th></tr></thead><tbody>' +
+      var pPending = provClaims.filter(function(c){ return c.status === 'pending'; }).length;
+      var pApproved = provClaims.filter(function(c){ return c.status === 'approved'; }).length;
+      var pRejected = provClaims.filter(function(c){ return c.status === 'rejected'; }).length;
+      function pInit(name) { return name.split(' ').map(function(w){ return w[0]; }).join('').substring(0,2).toUpperCase(); }
+      return '<div class="dv-header"><span class="dv-eyebrow">Claims Management</span><h1>Claims Management</h1><p>Review and manage patient insurance claims.</p></div>' +
+        '<div class="pc-summary">' +
+          '<div class="pcs-stat"><span class="pcs-icon blue"><i class="fa-solid fa-file-invoice"></i></span><div><strong>' + provClaims.length + '</strong><span>Total Claims</span></div></div>' +
+          '<div class="pcs-stat"><span class="pcs-icon amber"><i class="fa-solid fa-clock"></i></span><div><strong>' + pPending + '</strong><span>Pending</span></div></div>' +
+          '<div class="pcs-stat"><span class="pcs-icon green"><i class="fa-solid fa-check-double"></i></span><div><strong>' + pApproved + '</strong><span>Approved</span></div></div>' +
+          '<div class="pcs-stat"><span class="pcs-icon red"><i class="fa-solid fa-circle-xmark"></i></span><div><strong>' + pRejected + '</strong><span>Rejected</span></div></div>' +
+        '</div>' +
+        '<div class="pc-filter"><div class="claims-controls"><select class="claims-filter" id="provClaimFilter"><option value="all">All Status</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></div></div>' +
+        '<div class="premium-prov-claims">' +
           provClaims.map(function(c, i) {
-            return '<tr data-idx="' + i + '"><td>' + c.id + '</td><td>' + c.patient + '</td><td>' + c.hospital + '</td><td>$' + c.amount.toLocaleString() + '</td><td><span class="status-badge ' + c.status + '">' + c.status.charAt(0).toUpperCase() + c.status.slice(1) + '</span></td><td>' + c.date + '</td><td>' +
-              (c.status === 'pending' ? '<button class="btn-approve" data-idx="' + i + '" style="padding:0.35rem 0.7rem;border:none;border-radius:8px;background:var(--accent);color:#fff;font-size:0.78rem;font-weight:700;cursor:pointer;margin-right:4px">Approve</button><button class="btn-reject" data-idx="' + i + '" style="padding:0.35rem 0.7rem;border:1.5px solid #EF4444;border-radius:8px;background:transparent;color:#EF4444;font-size:0.78rem;font-weight:700;cursor:pointer">Reject</button>' : '—') +
-              '</td></tr>';
-          }).join('') +
-        '</tbody></table></div>';
-    }
-
-    function renderProvPatients() {
-      return '<div class="dv-header"><h1>Patients</h1><p>Manage patient records and claim history.</p></div>' +
-        '<div class="claims-controls"><div class="dt-search" style="max-width:300px"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="patientSearch" placeholder="Search patients..." /></div></div>' +
-        '<div class="patients-grid" id="patientsGrid">' +
-          provPatients.map(function(p) {
-            return '<div class="patient-card"><div class="patient-avatar">' + p.avatar + '</div><div class="patient-info"><strong>' + p.name + '</strong><span>Policy: ' + p.policy + '</span></div><span class="patient-claims">' + p.claims + ' claims</span></div>';
+            return '<div class="premium-prov-claim-card" data-idx="' + i + '">' +
+              '<div class="ppc-avatar ' + c.status + '">' + pInit(c.patient) + '</div>' +
+              '<div class="ppc-info">' +
+                '<div class="ppc-top"><strong>' + c.id + '</strong><span class="status-badge ' + c.status + '">' + c.status.charAt(0).toUpperCase() + c.status.slice(1) + '</span></div>' +
+                '<p class="ppc-name">' + c.patient + '</p>' +
+                '<span class="ppc-meta"><i class="fa-solid fa-hospital"></i> ' + c.hospital + ' <span class="ppc-sep"></span> <i class="fa-solid fa-list-check"></i> ' + c.type + ' <span class="ppc-sep"></span> <i class="fa-solid fa-calendar"></i> ' + c.date + '</span>' +
+              '</div>' +
+              '<div class="ppc-amount">$' + c.amount.toLocaleString() + '</div>' +
+              '<div class="ppc-actions">' +
+                (c.status === 'pending'
+                  ? '<button class="pc-approve" data-idx="' + i + '" aria-label="Approve"><i class="fa-solid fa-check"></i></button><button class="pc-reject" data-idx="' + i + '" aria-label="Reject"><i class="fa-solid fa-xmark"></i></button>'
+                  : '<span class="ppc-done">—</span>') +
+              '</div>' +
+            '</div>';
           }).join('') +
         '</div>';
     }
 
+    function renderProvPatients() {
+      var totalClaims = provPatients.reduce(function(s, p){ return s + p.claims; }, 0);
+      var activeCount = provPatients.filter(function(p){ return p.status === 'active'; }).length;
+      return '<div class="dv-header"><span class="dv-eyebrow">Patient Records</span><h1>Patients</h1><p>Manage patient records and claim history.</p></div>' +
+        '<div class="patient-summary">' +
+          '<div class="pt-sum-stat"><span class="pts-icon blue"><i class="fa-solid fa-users"></i></span><div><strong>' + provPatients.length + '</strong><span>Total Patients</span></div></div>' +
+          '<div class="pt-sum-stat"><span class="pts-icon green"><i class="fa-solid fa-user-check"></i></span><div><strong>' + activeCount + '</strong><span>Active</span></div></div>' +
+          '<div class="pt-sum-stat"><span class="pts-icon amber"><i class="fa-solid fa-file-invoice"></i></span><div><strong>' + totalClaims + '</strong><span>Total Claims</span></div></div>' +
+          '<div class="pt-sum-stat"><span class="pts-icon red"><i class="fa-solid fa-hand-holding-heart"></i></span><div><strong>$3.3M</strong><span>Coverage Handled</span></div></div>' +
+        '</div>' +
+        '<div class="claims-controls"><div class="dt-search" style="max-width:300px"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="patientSearch" placeholder="Search patients..." /></div></div>' +
+        '<div class="premium-patients-grid" id="patientsGrid">' +
+          provPatients.map(function(p) {
+            return '<div class="premium-patient-card">' +
+              '<div class="pt-avatar">' + p.avatar + '</div>' +
+              '<div class="pt-info">' +
+                '<div class="pt-top"><strong>' + p.name + '</strong><span class="pt-status ' + p.status + '">' + p.status.charAt(0).toUpperCase() + p.status.slice(1) + '</span></div>' +
+                '<span class="pt-meta"><i class="fa-solid fa-id-card"></i> ' + p.policy + ' <span class="pt-sep"></span> <i class="fa-solid fa-stethoscope"></i> ' + p.condition + '</span>' +
+              '</div>' +
+              '<div class="pt-stats"><div><strong>' + p.claims + '</strong><span>Claims</span></div><div><strong>' + p.coverage + '</strong><span>Coverage</span></div><div><strong>' + p.lastVisit + '</strong><span>Last Visit</span></div></div>' +
+              '<a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i> View</a>' +
+            '</div>';
+          }).join('') +
+        '</div>';
+    }
     function renderProvHospitals() {
-      return '<div class="dv-header"><h1>Hospitals Network</h1><p>Manage hospital partner status.</p></div>' +
-        '<div class="hospitals-grid">' +
+      var hActive = provHospitals.filter(function(h){ return h.status === 'active'; }).length;
+      var totalBeds = provHospitals.reduce(function(s, h){ return s + h.beds; }, 0);
+      return '<div class="dv-header"><span class="dv-eyebrow">Partner Network</span><h1>Hospitals Network</h1><p>Manage hospital partner status.</p></div>' +
+        '<div class="hospital-summary">' +
+          '<div class="hosp-sum-stat"><span class="hss-icon blue"><i class="fa-solid fa-hospital"></i></span><div><strong>' + provHospitals.length + '</strong><span>Partner Hospitals</span></div></div>' +
+          '<div class="hosp-sum-stat"><span class="hss-icon green"><i class="fa-solid fa-circle-check"></i></span><div><strong>' + hActive + '</strong><span>Active</span></div></div>' +
+          '<div class="hosp-sum-stat"><span class="hss-icon amber"><i class="fa-solid fa-bed"></i></span><div><strong>' + totalBeds + '</strong><span>Total Beds</span></div></div>' +
+          '<div class="hosp-sum-stat"><span class="hss-icon red"><i class="fa-solid fa-star"></i></span><div><strong>4.7</strong><span>Avg. Rating</span></div></div>' +
+        '</div>' +
+        '<div class="premium-hospitals-grid">' +
           provHospitals.map(function(h, i) {
-            return '<div class="hospital-card"><img class="hospital-card-img" src="' + h.img + '" alt="' + h.name + '" /><div class="hospital-card-body"><h4>' + h.name + '</h4><p><i class="fa-solid fa-location-dot"></i> ' + h.city + '</p></div><div class="hospital-card-actions"><button class="status-toggle ' + h.status + '" data-idx="' + i + '">' + h.status.charAt(0).toUpperCase() + h.status.slice(1) + '</button></div></div>';
+            return '<div class="premium-hospital-card">' +
+              '<div class="ph-hero"><img src="' + h.img + '" alt="' + h.name + '" /><div class="ph-hero-overlay"></div>' +
+                '<span class="ph-rating"><i class="fa-solid fa-star"></i> ' + h.rating + '</span>' +
+                '<span class="ph-partner"><i class="fa-solid fa-handshake"></i> Since ' + h.partner + '</span>' +
+              '</div>' +
+              '<div class="ph-body">' +
+                '<h3>' + h.name + '</h3>' +
+                '<p class="ph-loc"><i class="fa-solid fa-location-dot"></i> ' + h.city + '</p>' +
+                '<div class="ph-stats"><div><strong>' + h.beds + '</strong><span>Beds</span></div><div><strong>' + h.depts.length + '</strong><span>Departments</span></div></div>' +
+                '<div class="ph-specs">' + h.depts.map(function(d){ return '<span>' + d + '</span>'; }).join('') + '</div>' +
+                '<div class="ph-actions"><button class="status-toggle ' + h.status + '" data-idx="' + i + '"><i class="fa-solid ' + (h.status === 'active' ? 'fa-toggle-on' : 'fa-toggle-off') + '"></i> ' + h.status.charAt(0).toUpperCase() + h.status.slice(1) + '</button><a href="404.html" class="btn btn-ghost btn-sm"><i class="fa-solid fa-eye"></i> View</a></div>' +
+              '</div>' +
+            '</div>';
           }).join('') +
         '</div>';
     }
@@ -1885,11 +2096,27 @@
     }
 
     function renderProvSettings() {
-      return '<div class="dv-header"><h1>Settings</h1><p>Manage your provider profile.</p></div>' +
-        '<div class="settings-card"><h3>Profile Information</h3>' +
-          '<div class="settings-group"><label>Full Name</label><input type="text" id="provSettingsName" value="Dr. ' + pName + '" /></div>' +
-          '<div class="settings-group"><label>Email Address</label><input type="email" id="provSettingsEmail" value="' + pEmail + '" /></div>' +
-          '<button class="btn btn-primary btn-sm" id="provSettingsSave">Save Changes</button>' +
+      var initials = pName.split(' ').filter(function(w){ return w.length > 1; }).map(function(w){ return w[0]; }).join('').substring(0,2).toUpperCase() || pName.charAt(0).toUpperCase();
+      return '<div class="dv-header"><span class="dv-eyebrow">Account Settings</span><h1>Settings</h1><p>Manage your provider profile and practice preferences.</p></div>' +
+        '<div class="settings-profile-card">' +
+          '<div class="sp-avatar prov">' + initials + '</div>' +
+          '<div class="sp-info"><strong>Dr. ' + pName + '</strong><span>' + pEmail + '</span><em><i class="fa-solid fa-user-doctor"></i> Provider Account</em></div>' +
+          '<div class="sp-stats"><div><strong>8</strong><span>Claims Handled</span></div><div><strong>6</strong><span>Patients</span></div><div><strong>4</strong><span>Hospitals</span></div></div>' +
+        '</div>' +
+        '<div class="settings-grid">' +
+          '<div class="settings-card premium-settings-card"><h3><i class="fa-solid fa-user-doctor"></i> Profile Information</h3>' +
+            '<div class="settings-group"><label>Full Name</label><div class="setting-input"><i class="fa-solid fa-user"></i><input type="text" id="provSettingsName" value="Dr. ' + pName + '" /></div></div>' +
+            '<div class="settings-group"><label>Email Address</label><div class="setting-input"><i class="fa-solid fa-envelope"></i><input type="email" id="provSettingsEmail" value="' + pEmail + '" /></div></div>' +
+            '<div class="settings-group"><label>Phone Number</label><div class="setting-input"><i class="fa-solid fa-phone"></i><input type="tel" value="+1 555 000 1234" /></div></div>' +
+            '<button class="btn btn-primary btn-sm" id="provSettingsSave"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>' +
+          '</div>' +
+          '<div class="settings-card premium-settings-card"><h3><i class="fa-solid fa-briefcase-medical"></i> Practice & Security</h3>' +
+            '<div class="settings-group"><label>Clinic Name</label><div class="setting-input"><i class="fa-solid fa-building"></i><input type="text" value="City Health Clinic" /></div></div>' +
+            '<div class="settings-group"><label>Specialty</label><div class="setting-input"><i class="fa-solid fa-stethoscope"></i><input type="text" value="Cardiology" /></div></div>' +
+            '<div class="settings-toggle-row"><div><strong>Availability Status</strong><span>Show as accepting new patients</span></div><label class="st-switch"><input type="checkbox" checked /><span></span></label></div>' +
+            '<div class="settings-toggle-row"><div><strong>Two-Factor Auth</strong><span>Add an extra layer of security</span></div><label class="st-switch"><input type="checkbox" checked /><span></span></label></div>' +
+            '<a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-key"></i> Update Password</a>' +
+          '</div>' +
         '</div>';
     }
 
@@ -1943,14 +2170,14 @@
         case 'overview': pContent.innerHTML = renderProvOverview(); pAnimateCounters(); setTimeout(initProvCharts, 100); break;
         case 'claims':
           pContent.innerHTML = renderProvClaims();
-          pContent.querySelectorAll('.btn-approve').forEach(function(b){ b.addEventListener('click', function(){ handleClaimAction(this.getAttribute('data-idx'), 'approved'); pNavigateTo('claims'); }); });
-          pContent.querySelectorAll('.btn-reject').forEach(function(b){ b.addEventListener('click', function(){ handleClaimAction(this.getAttribute('data-idx'), 'rejected'); pNavigateTo('claims'); }); });
+          pContent.querySelectorAll('.pc-approve').forEach(function(b){ b.addEventListener('click', function(){ handleClaimAction(this.getAttribute('data-idx'), 'approved'); pNavigateTo('claims'); }); });
+          pContent.querySelectorAll('.pc-reject').forEach(function(b){ b.addEventListener('click', function(){ handleClaimAction(this.getAttribute('data-idx'), 'rejected'); pNavigateTo('claims'); }); });
           var filter = document.getElementById('provClaimFilter');
           if (filter) filter.addEventListener('change', function() {
             var val = this.value;
-            pContent.querySelectorAll('#provClaimsTable tbody tr').forEach(function(row) {
-              var idx = row.getAttribute('data-idx');
-              row.style.display = (val === 'all' || provClaims[idx].status === val) ? '' : 'none';
+            pContent.querySelectorAll('.premium-prov-claim-card').forEach(function(card) {
+              var idx = card.getAttribute('data-idx');
+              card.style.display = (val === 'all' || provClaims[idx].status === val) ? '' : 'none';
             });
           });
           break;
@@ -1959,7 +2186,7 @@
           var pSearch = document.getElementById('patientSearch');
           if (pSearch) pSearch.addEventListener('input', function() {
             var q = this.value.toLowerCase();
-            pContent.querySelectorAll('.patient-card').forEach(function(card) {
+            pContent.querySelectorAll('.premium-patient-card').forEach(function(card) {
               card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
             });
           });
